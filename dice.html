@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="./images/dndfavicon.png" />
-    <title>D&D 5E Toolkit</title>
+    <title>D&D 5E Monster Manual</title>
     <link rel="stylesheet" href="/style.css" />
     <script src="/script.js" defer></script>
     
@@ -21,11 +21,11 @@
   <div class="side-menu" id="sideMenu">
     <p>5E Toolkit</p><br>
     <a href="/">Home</a>
-    <a href="/dmg.html" class="menu-btn">Dungeon Master's Guide</a>
-    <a href="/phb.html" class="menu-btn">Player's Handbook</a>
-    <a href="/mm.html" class="menu-btn">Monster Manual</a>
-    <a href="/char.html" class="menu-btn">Character Sheet(s)</a>
-    <a href="/dice.html" class="menu-btn">Dice Roller</a>
+  <a href="/dmg.html" class="menu-btn">Dungeon Master's Guide</a>
+  <a href="/phb.html" class="menu-btn">Player's Handbook</a>
+  <a href="/mm.html" class="menu-btn">Monster Manual</a>
+  <a href="/char.html" class="menu-btn">Character Sheet(s)</a>
+  <a href="/dice.html" class="menu-btn">Dice Roller</a>
     ---<br>
     ---<br>
     ---<br>
@@ -41,11 +41,30 @@
   <main id="main-content">
     <!-- Place any page-specific content here -->
     <img src="./images/DND Logo.png" alt="D&D Logo"><br>
-    <h1>Welcome to D&D 5E Toolkit</h1>
-    <p>Select a tool from the menu.</p>
-  </main>
+  
     
+    <div class="monsters-app">
+      <h1>D&D 5E Dice Roller</h1>
+      <form id="dice-form">
+      <div class="dice-selector">
+        <label>d2 x <input type="number" name="d2" min="0" value="0"></label><br>
+        <label>d3 x <input type="number" name="d3" min="0" value="0"></label><br>
+        <label>d4 x <input type="number" name="d4" min="0" value="0"></label><br>
+        <label>d6 x <input type="number" name="d6" min="0" value="0"></label><br>
+        <label>d8 x <input type="number" name="d8" min="0" value="0"></label><br>
+        <label>d10 x <input type="number" name="d10" min="0" value="0"></label><br>
+        <label>d12 x <input type="number" name="d12" min="0" value="0"></label><br>
+        <label>d20 x <input type="number" name="d20" min="0" value="0"></label><br>
+        <label>d100 x <input type="number" name="d100" min="0" value="0"></label><br>
+      </div>
+      <br>
+      <button type="submit" class="all-monsters-btn">Roll Dice</button>
+    </form>
 
+    <div id="dice-results" class="monsters-display"></div>
+    <br>
+    <button id="save-results-btn" class="all-monsters-btn" style="display: none;">Save Dice Rolls to File</button>
+    </main>
     
     <footer>
       Information produced under the OGL, available <a href="http://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf">here</a>.<br>

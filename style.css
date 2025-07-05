@@ -62,7 +62,8 @@ body {
     font-size: 16px;
     font-family: "MedievalSharp", cursive;
     border-radius: 8px;
-    margin: 10px;
+    margin: 40px;
+    margin-top: 120px;
   }
   
   footer {
@@ -75,3 +76,111 @@ body {
     font-size: 11px;
     border-top: 1px solid red;
   }
+
+  .hamburger {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 28px;
+  color: red;
+  z-index: 1001;
+  cursor: pointer;
+  font-family: "MedievalSharp", cursive;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #12181C;
+  color: red;
+  padding: 20px;
+  font-family: "MedievalSharp", cursive;
+  font-size: 22px;
+  border-right: 1px solid red;
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.side-menu.open {
+  left: 0;
+}
+
+.side-menu a {
+  color: red;
+  text-decoration: none;
+}
+
+.side-menu a:hover {
+  text-decoration: underline;
+}
+
+.navbar {
+  display: none; /* hide original navbar */
+}
+
+#main-content {
+  transition: margin-left 0.3s ease-in-out;
+  padding: 20px;
+  margin-left: 0;
+}
+
+body.menu-open #main-content {
+  margin-left: 250px;
+}
+
+/* Optional: adjust footer when menu is open */
+body.menu-open footer {
+  margin-left: 250px;
+}
+
+.menu-btn {
+  display: block;
+  background-color: black;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-family: "MedievalSharp", cursive;
+  font-size: 19px;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.menu-btn:hover {
+  background-color: white;
+  color: red;
+  transform: scale(1.05);
+}
+
+
+/* DICE STYLE SECTION */
+.dice-selector {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
+  gap: 10px;
+  max-width: 250px;
+  margin: auto;
+  text-align: left;
+}
+
+.dice-selector label {
+  background-color: #12181C;
+  padding: 10px;
+  border: 1px solid red;
+  border-radius: 8px;
+  color: red;
+  display: block;
+}
+
+#dice-results {
+  margin-top: 20px;
+  font-size: 18px;
+  text-align: center;
+}
