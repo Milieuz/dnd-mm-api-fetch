@@ -52,7 +52,7 @@ body {
   } 
   
   .all-monsters-btn{
-    background-color: red; /* Green */
+    background-color: red;
     border: none;
     color: white;
     padding: 10px 32px;
@@ -134,7 +134,7 @@ body.menu-open #main-content {
   margin-left: 250px;
 }
 
-/* Optional: adjust footer when menu is open */
+/* adjust footer when menu is open */
 body.menu-open footer {
   margin-left: 250px;
 }
@@ -163,7 +163,6 @@ body.menu-open footer {
 /* DICE STYLE SECTION */
 .dice-selector {
   display: grid;
-  /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
   gap: 10px;
   max-width: 250px;
   margin: auto;
