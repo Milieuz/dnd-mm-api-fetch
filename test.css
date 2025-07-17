@@ -1,0 +1,128 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  grid-template-rows: repeat(3, 1fr);    /* 3 equal rows */
+  gap: 5px;                             /* space between grid items */
+  padding: 5px;
+  grid-template-areas: 
+    "nameplate info-char info-char"
+    "info-stats info-combat info-personality"
+    "info-stats info-attacks info-featandtrait"
+    "info-profandlang info-equipment info-featandtrait"
+    "nameplate2 info-char-physical info-char-physical"
+    "info-appearance info-allyandorg info-allyandorg"
+    "info-backstory info-featuresandtraits info-featuresandtraits"
+    "info-backstory info-treasure info-treasure"
+    "spell-class spell-stats spell-stats"
+    "spell-levels spell-levels spell-levels"
+   ;
+}
+
+.grid-item {
+  background-color: #ddd;
+  border: 1px solid #999;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.grid-item:nth-child(1) {
+  grid-area: nameplate;
+}
+
+.grid-item:nth-child(2) {
+  grid-area: info-char;
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.grid-item:nth-child(3) {
+  grid-area: info-stats;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.grid-item:nth-child(3) .stat-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.grid-item:nth-child(4) {
+  grid-area: info-combat;
+}
+
+.grid-item:nth-child(5) {
+  grid-area: info-personality;
+}
+
+.grid-item:nth-child(6) {
+  grid-area: info-attacks;
+}
+
+.grid-item:nth-child(7) {
+  grid-area: info-featandtrait;
+}
+.grid-item:nth-child(8) {
+  grid-area: info-profandlang;
+}
+.grid-item:nth-child(9) {
+  grid-area: info-equipment;
+}
+
+/* - PAGE 2 - */
+.grid-item:nth-child(10) {
+  grid-area: nameplate2;
+}
+
+.grid-item:nth-child(11) {
+  grid-area: info-char-physical;
+}
+
+.grid-item:nth-child(12) {
+  grid-area: info-appearance;
+}
+
+.grid-item:nth-child(13) {
+  grid-area: info-allyandorg;
+}
+
+.grid-item:nth-child(14) {
+  grid-area: info-backstory;
+}
+
+.grid-item:nth-child(15) {
+  grid-area: info-featuresandtraits;
+}
+
+.grid-item:nth-child(16) {
+  grid-area: info-treasure;
+}
+
+/* - PAGE 3 - */
+.grid-item:nth-child(17) {
+  grid-area: spell-class;
+}
+
+.grid-item:nth-child(18) {
+  grid-area: spell-stats;
+}
+
+.grid-item:nth-child(19) {
+  grid-area: spell-levels;
+}
+
+/* - RESPONSIVE - */
+@media screen and (max-width: 768px) {
+  .grid-container {
+    display: block;
+    padding: 5px;
+  }
+
+  .grid-item {
+    display: block;
+    margin-bottom: 5px;
+  }
+}
