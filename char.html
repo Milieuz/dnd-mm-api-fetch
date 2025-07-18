@@ -22,7 +22,7 @@
         </div>
 
         <div class="side-menu" id="sideMenu">
-            <br><br><br>
+            <div class="menu-spacer"></div>
             <a href="/index.html" class="menu-btn">Home</a>
             <a href="/dmg.html" class="menu-btn">Dungeon Master's Guide</a>
             <a href="/phb.html" class="menu-btn">Player's Handbook</a>
@@ -43,7 +43,20 @@
             <form id="character-sheet">
                 <div class="sheet-container">
                     <div class="grid-container">
-                        <div class="grid-item"><label>Character Name:<br><input type="text" name="characterName" style="width:100%;"></label></div>
+                        <div class="grid-item nameplate-header">
+                            <div class="name-label">
+                                <label>Character Name:<br>
+                                <input type="text" name="characterName" style="width:100%;">
+                                </label>
+                            </div>
+                            <div class="import-export-buttons">
+                                <button type="button" onclick="exportCharacter()">Export</button>
+                                <button type="button" onclick="importCharacter()">Import</button>
+                                <input type="file" id="importFile" style="display:none;" onchange="handleImportFile(event)">
+                            </div>
+                        </div>
+
+
                         <div class="grid-item"><span><label>Class & Level:<br><input type="text" name="classLevel" style="width:100%;"></label></span><span><label>Background:<br><input type="text" name="background" style="width:100%;"></label></span><span><label>Player Name:<br><input type="text" name="playerName" style="width:100%;"></label></span><span><label>Race:<br><input type="text" name="race" style="width:100%;"></label></span><span><label>Alignment:<br><input type="text" name="alignment" style="width:100%;"></label></span><span><label>Experience Points:<br><input type="text" name="xp" style="width:100%;"></label></span></div>
                         <div class="grid-item">
                         <div class="stat-column">
