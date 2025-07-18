@@ -1,8 +1,8 @@
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-  grid-template-rows: repeat(3, 1fr);    /* 3 equal rows */
-  gap: 5px;                             /* space between grid items */
+  grid-template-rows: auto;
+  gap: 5px;
   padding: 5px;
   grid-template-areas: 
     "nameplate info-char info-char"
@@ -112,6 +112,11 @@
 
 .grid-item:nth-child(19) {
   grid-area: spell-levels;
+}
+
+input {
+  color: black;
+  background-color: white;
 }
 
 /* - RESPONSIVE - */

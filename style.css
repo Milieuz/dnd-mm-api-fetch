@@ -126,7 +126,7 @@ body {
 #main-content {
   transition: margin-left 0.3s ease-in-out;
   padding: 20px;
-  margin-left: 0;
+  margin-left: 50px;
 }
 
 body.menu-open #main-content {
@@ -150,7 +150,7 @@ margin-left: 200px;
 
 .menu-btn {
   display: block;
-  background-color: black;
+  background-color: red;
   color: white;
   text-align: center;
   text-decoration: none;
@@ -168,6 +168,9 @@ margin-left: 200px;
   transform: scale(1.05);
 }
 
+a.menu-btn {
+  color: white;
+}
 
 /* DICE STYLE SECTION */
 .dice-selector {
@@ -207,6 +210,7 @@ margin-left: 200px;
 
   #main-content {
     padding: 15px;
+    margin-left: 0px;
   }
 
   body.menu-open #main-content,
@@ -223,8 +227,13 @@ margin-left: 200px;
   }
 
   .menu-btn {
-    font-size: 14px;
-    padding: 4px;
+    font-size: 20px;
+    width: 90px;
+    height: 90px;
+    padding: 16px;
     margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
