@@ -205,6 +205,10 @@ margin-left: 200px;
     font-size: 18px;
   }
 
+  #main-content {
+    padding: 15px;
+  }
+
   body.menu-open #main-content,
   body.menu-open footer {
     margin-left: 130px;

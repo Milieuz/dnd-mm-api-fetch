@@ -4,22 +4,37 @@
 function exportCharacter() {
   const form = document.getElementById('character-sheet');
   const data = {};
+  let characterName = "character"; // default fallback
+
   for (let el of form.elements) {
     if (el.name) {
       data[el.name] = el.value;
+      if (el.name === "characterName") {
+        characterName = el.value.trim() || "character";
+      }
     }
   }
+
+  // Clean characterName for filename safety
+  characterName = characterName.replace(/[^a-z0-9_-]/gi, '_');
+
   const blob = new Blob([JSON.stringify(data, null, 2)], { type: "text/plain" });
   const url = URL.createObjectURL(blob);
 
+  // Timestamp
+  const now = new Date();
+  const timestamp = now.toISOString().replace(/[:T]/g, '-').split('.')[0];
+
   const a = document.createElement("a");
   a.href = url;
-  a.download = "character.txt";
+  a.download = `${characterName}-${timestamp}.txt`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 }
+
+
 
 function importCharacter() {
   document.getElementById('importFile').click();

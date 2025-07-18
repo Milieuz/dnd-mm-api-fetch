@@ -1,151 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="./images/dndfavicon.png" />
-  <title>CHARACTER SHEET</title>
-	
-  <link rel="stylesheet" href="char-sheet.css" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="charscript.js" defer></script>
-    <script src="script.js" defer></script>
+    <head>
+          <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="./images/dndfavicon.png" />
+        <title>CHARACTER SHEET</title>
+            
+        <link rel="stylesheet" href="test.css" />
+        <link rel="stylesheet" href="style.css" />
+        <script src="charscript.js" defer></script>
+        <script src="script.js" defer></script>
+        
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
-</head>
-<body>
-  <div class="hamburger" onclick="toggleMenu()">
-    <img src="images/dndicons/icons8-dungeons-and-dragons-48.png" alt="menu" />
-  </div>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="hamburger" onclick="toggleMenu()">
+            <img src="images/dndicons/icons8-dungeons-and-dragons-48.png" alt="menu" />
+        </div>
 
-    <div class="side-menu" id="sideMenu">
-    <p>5E Toolkit</p><br>
-    <a href="/">Home</a>
-    <a href="/dmg.html" class="menu-btn">Dungeon Master's Guide</a>
-    <a href="/phb.html" class="menu-btn">Player's Handbook</a>
-    <a href="/mm.html" class="menu-btn">Monster Manual</a>
-    <a href="/char.html" class="menu-btn">Character Sheet(s)</a>
-    <a href="/dice.html" class="menu-btn">Dice Roller</a>
-    ---<br>
-    ---<br>
-    ---<br>
-    ---<br>
-    ---<br>
-    <a href="https://www.dnd5eapi.co/">D&D 5E API</a>
-    <a href="https://dndstore.wizards.com/us/en">D&D Official Store</a>
-    <a href="https://www.dndbeyond.com/">D&D Beyond</a>
-    <a href="https://company.wizards.com/en">WotC</a>
-  	</div>
+        <div class="side-menu" id="sideMenu">
+            <p>5E Toolkit</p><br>
+            <a href="/">Home</a>
+            <a href="/dmg.html" class="menu-btn">Dungeon Master's Guide</a>
+            <a href="/phb.html" class="menu-btn">Player's Handbook</a>
+            <a href="/mm.html" class="menu-btn">Monster Manual</a>
+            <a href="/char.html" class="menu-btn">Character Sheet(s)</a>
+            <a href="/dice.html" class="menu-btn">Dice Roller</a>
+            ---<br>
+            ---<br>
+            ---<br>
+            ---<br>
+            ---<br>
+            <a href="https://www.dnd5eapi.co/">D&D 5E API</a>
+            <a href="https://dndstore.wizards.com/us/en">D&D Official Store</a>
+            <a href="https://www.dndbeyond.com/">D&D Beyond</a>
+            <a href="https://company.wizards.com/en">WotC</a>
+        </div>
+        <main id="main-content">
+            <form id="character-sheet">
+                <div class="sheet-container">
+                    <div class="grid-container">
+                        <div class="grid-item"><label>Character Name:<br><input type="text" name="characterName" style="width:100%;"></label></div>
+                        <div class="grid-item"><span><label>Class & Level:<br><input type="text" name="classLevel" style="width:100%;"></label></span><span><label>Background:<br><input type="text" name="background" style="width:100%;"></label></span><span><label>Player Name:<br><input type="text" name="playerName" style="width:100%;"></label></span><span><label>Race:<br><input type="text" name="race" style="width:100%;"></label></span><span><label>Alignment:<br><input type="text" name="alignment" style="width:100%;"></label></span><span><label>Experience Points:<br><input type="text" name="xp" style="width:100%;"></label></span></div>
+                        <div class="grid-item">
+                        <div class="stat-column">
+                            <div><label>Strength:<br><input type="text" name="strength" style="width:100%;" oninput="calculateModifiers()"></label></div>
+                            <div><label>Dexterity:<br><input type="text" name="dexterity" style="width:100%;" oninput="calculateModifiers()"></label></div>
+                            <div><label>Constitution:<br><input type="text" name="constitution" style="width:100%;" oninput="calculateModifiers()"></label></div>
+                            <div><label>Intelligence:<br><input type="text" name="intelligence" style="width:100%;" oninput="calculateModifiers()"></label></div>
+                            <div><label>Wisdom:<br><input type="text" name="wisdom" style="width:100%;" oninput="calculateModifiers()"></label></div>
+                            <div><label>Charisma:<br><input type="text" name="charisma" style="width:100%;" oninput="calculateModifiers()"></label></div>
+                        </div>
+                        <div class="stat-column">
+                            <div><label>STR Modifier:<br><input type="text" name="strengthMod" readonly style="width:100%;"></label></div>
+                            <div><label>DEX Modifier:<br><input type="text" name="dexterityMod" readonly style="width:100%;"></label></div>
+                            <div><label>CON Modifier:<br><input type="text" name="constitutionMod" readonly style="width:100%;"></label></div>
+                            <div><label>INT Modifier:<br><input type="text" name="intelligenceMod" readonly style="width:100%;"></label></div>
+                            <div><label>WIS Modifier:<br><input type="text" name="wisdomMod" readonly style="width:100%;"></label></div>
+                            <div><label>CHA Mod:<br><input type="text" name="charismaMod" readonly style="width:100%;"></label></div>
+                        </div>
+                        </div>    
+                        <div class="grid-item"><label>Armor Class:<br><input type="text" name="armorClass" style="width:100%;"></label> <br> <label>Initiative:<br><input type="text" name="initiative" style="width:100%;"></label> <br> <label>Speed:<br><input type="text" name="speed" style="width:100%;"></label> <br> <label>Current HP:<br><input type="text" name="hpCurrent" style="width:100%;"></label> <br> <label>Temp HP:<br><input type="text" name="hpTemp" style="width:100%;"></label> <br> <label>Hit Dice:<br><input type="text" name="hitDice" style="width:100%;"></label> <br> <label>Death Saves:<br><input type="text" name="deathSaves" style="width:100%;"></label></div>
+                        <div class="grid-item"><label style="grid-column: span 3;">Personality Traits:<br><textarea name="personalityTraits" rows="2" style="width:100%;"></textarea></label> <br> <label style="grid-column: span 3;">Ideals:<br><textarea name="ideals" rows="2" style="width:100%;"></textarea></label> <br> <label style="grid-column: span 3;">Bonds:<br><textarea name="bonds" rows="2" style="width:100%;"></textarea></label> <br> <label style="grid-column: span 3;">Flaws:<br><textarea name="flaws" rows="2" style="width:100%;"></textarea></label></div>
+                        <div class="grid-item"><label style="grid-column: span 3;">Attacks & Spellcasting:<br>Name - ATK Bonus - DMG/Type<br><textarea name="attacksAndSpellcasting" rows="2" style="width:100%;"></textarea></label><br></div>
+                        <div class="grid-item"><label style="grid-column: span 3;">Features & Traits:<br><textarea name="featuresAndTraits" rows="2" style="width:100%;"></textarea></label></div>
+                        <div class="grid-item"><label style="grid-column: span 3;">Other Proficiencies & Languages:<br><textarea name="proficienciesAndLanguages" rows="2" style="width:100%;"></textarea></label></div>
+                        <div class="grid-item"><label style="grid-column: span 3;">Equipment:<br><textarea name="equipment" rows="2" style="width:100%;"></textarea></label><br><label>CP:<br><input type="text" name="cp" style="width:100%;"></label><label>SP:<br><input type="text" name="sp" style="width:100%;"></label><label>EP:<br><input type="text" name="ep" style="width:100%;"></label><label>GP:<br><input type="text" name="gp" style="width:100%;"></label><label>PP:<br><input type="text" name="pp" style="width:100%;"></label></div>
+                        <div class="grid-item"><label>Character Name:<br><input type="text" name="characterName2" style="width:100%;"></label></div>
+                        <div class="grid-item"><label>Age:<br><input type="text" name="age" style="width:100%;"></label><label>Height:<br><input type="text" name="height" style="width:100%;"></label><label>Weight:<br><input type="text" name="weight" style="width:100%;"></label><label>Eyes:<br><input type="text" name="eyes" style="width:100%;"></label><label>Skin:<br><input type="text" name="skin" style="width:100%;"></label><label>Hair:<br><input type="text" name="hair" style="width:100%;"></label></div>
+                        <div class="grid-item"><label style="grid-column: span 3;">Appearance:<br><textarea name="appearance" rows="2" style="width:100%;"></textarea></label></div>
+                        <div class="grid-item"><label style="grid-column: span 3;">Allies & Organizations:<br><textarea name="allyAndOrgs" rows="2" style="width:100%;"></textarea></label></div>
+                        <div class="grid-item"><label style="grid-column: span 3;">Backstory:<br><textarea name="backstory" rows="2" style="width:100%;"></textarea></label></div>
+                        <div class="grid-item"><label style="grid-column: span 3;">Features & Traits:<br><textarea name="featuresAndTraits" rows="2" style="width:100%;"></textarea></label></div>
+                        <div class="grid-item"><label style="grid-column: span 3;">Treasure:<br><textarea name="treasure" rows="2" style="width:100%;"></textarea></label></div>
+                        <div class="grid-item"><label>Spellcasting Class:<br><input type="text" name="spellClass" style="width:100%;"></label></div>
+                        <div class="grid-item"><label>Spellcasting Ability:<br><input type="text" name="spellCastingAbility" style="width:100%;"></label><label>Spell Save DC:<br><input type="text" name="spellSaveDC" style="width:100%;"></label><label>Spell Attack Bonus:<br><input type="text" name="spellAttackBonus" style="width:100%;"></label></div>
+                        <div class="grid-item"><label style="grid-column: span 3;">Spells & Levels:<br><textarea name="spellsAndLevels" rows="2" style="width:100%;"></textarea></label></div>
+                    </div>
+                </div>
+                </div>
+                <div style="text-align:center; margin-top:0px; margin-bottom:150px;">
+                <button type="button" onclick="exportCharacter()">Export</button>
+                <button type="button" onclick="importCharacter()">Import</button>
+                <input type="file" id="importFile" style="display:none;" onchange="handleImportFile(event)">
+                </div>
+            </form>
+        </main>
 
-  <main id="main-content">
-    <form id="character-sheet">
-      <div class="sheet-container">
-					<div class="identity">
-				  <label>Character Name:<br><input type="text" name="characterName" style="width:100%;"></label>
-				  <label>Class & Level:<br><input type="text" name="classLevel" style="width:100%;"></label>
-				  <label>Player Name:<br><input type="text" name="playerName" style="width:100%;"></label>
-				  <label>Race:<br><input type="text" name="race" style="width:100%;"></label>
-				  <label>Background:<br><input type="text" name="background" style="width:100%;"></label>
-				  <label>Alignment:<br><input type="text" name="alignment" style="width:100%;"></label>
-				  <label>Experience Points:<br><input type="text" name="xp" style="width:100%;"></label>
-				</div>
+        <footer>
+        Information produced under the OGL, available <a href="http://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf">here</a>.<br>
+        Dungeons & Dragons, D&D Beyond, D&D, Wizards of the Coast, the dragon ampersand, and all other Wizards of the Coast product names, campaign settings, their respective logos, and The World's Greatest Roleplaying Game are © and trademark Wizards of the Coast in the U.S.A. and other countries. © 2024 Wizards.<br>
+        Created for Code:You Tuesday, July 15, 2025 by Evan Alexander Wheeler
+        </footer> 
 
-			<div class="stats">
-			  <div class="ability-group">
-				<label>Strength:<br><input type="text" name="strength" style="width:100%;" oninput="calculateModifiers()"></label>
-				<label>Dexterity:<br><input type="text" name="dexterity" style="width:100%;" oninput="calculateModifiers()"></label>
-				<label>Constitution:<br><input type="text" name="constitution" style="width:100%;" oninput="calculateModifiers()"></label>
-				<label>Intelligence:<br><input type="text" name="intelligence" style="width:100%;" oninput="calculateModifiers()"></label>
-				<label>Wisdom:<br><input type="text" name="wisdom" style="width:100%;" oninput="calculateModifiers()"></label>
-				<label>Charisma:<br><input type="text" name="charisma" style="width:100%;" oninput="calculateModifiers()"></label>
-			  </div>
-			  <div class="modifier-group">
-				<label>STR Modifier:<br><input type="text" name="strengthMod" readonly style="width:100%;"></label>
-				<label>DEX Modifier:<br><input type="text" name="dexterityMod" readonly style="width:100%;"></label>
-				<label>CON Modifier:<br><input type="text" name="constitutionMod" readonly style="width:100%;"></label>
-				<label>INT Modifier:<br><input type="text" name="intelligenceMod" readonly style="width:100%;"></label>
-				<label>WIS Modifier:<br><input type="text" name="wisdomMod" readonly style="width:100%;"></label>
-				<label>CHA Mod:<br><input type="text" name="charismaMod" readonly style="width:100%;"></label>
-			  </div>
-			</div>
-				
-
-				<div class="combat">
-				  <label>Hit Point Max:<br><input type="text" name="hpMax" style="width:100%;"></label>
-				  <label>Current HP:<br><input type="text" name="hpCurrent" style="width:100%;"></label>
-				  <label>Temp HP:<br><input type="text" name="hpTemp" style="width:100%;"></label>
-				  <label>Armor Class:<br><input type="text" name="armorClass" style="width:100%;"></label>
-				  <label>Initiative:<br><input type="text" name="initiative" style="width:100%;"></label>
-				  <label>Speed:<br><input type="text" name="speed" style="width:100%;"></label>
-				  <label>Proficiency Bonus:<br><input type="text" name="proficiencyBonus" style="width:100%;"></label>
-				</div>
-
-				<div class="personality">
-				  <label style="grid-column: span 3;">Personality Traits:<br><textarea name="personalityTraits" rows="2" style="width:100%;"></textarea></label>
-				  <label style="grid-column: span 3;">Ideals:<br><textarea name="ideals" rows="2" style="width:100%;"></textarea></label>
-				  <label style="grid-column: span 3;">Bonds:<br><textarea name="bonds" rows="2" style="width:100%;"></textarea></label>
-				  <label style="grid-column: span 3;">Flaws:<br><textarea name="flaws" rows="2" style="width:100%;"></textarea></label>
-				</div>
-
-				<div class="equipment">
-				  <label>CP:<br><input type="text" name="cp" style="width:100%;"></label>
-				  <label>SP:<br><input type="text" name="sp" style="width:100%;"></label>
-				  <label>EP:<br><input type="text" name="ep" style="width:100%;"></label>
-				  <label>GP:<br><input type="text" name="gp" style="width:100%;"></label>
-				  <label>PP:<br><input type="text" name="pp" style="width:100%;"></label>
-				  <label style="grid-column: span 3;">Equipment:<br><textarea name="equipment" rows="3" style="width:100%;"></textarea></label>
-				  <label style="grid-column: span 3;">Other Proficiencies & Languages:<br><textarea name="proficienciesLang" rows="3" style="width:100%;"></textarea></label>
-				</div>
-
-				<div class="features">
-				  <label>Features & Traits<br><textarea name="features"></textarea></label>
-				</div>
-			  </div>
-			  
-				<div style="grid-column: span 3;"><h2>Skills</h2></div>
-				<label>Acrobatics (Dex):<br><input type="text" name="acrobatics" style="width:100%;"></label>
-				<label>Animal Handling (Wis):<br><input type="text" name="animalHandling" style="width:100%;"></label>
-				<label>Arcana (Int):<br><input type="text" name="arcana" style="width:100%;"></label>
-				<label>Athletics (Str):<br><input type="text" name="athletics" style="width:100%;"></label>
-				<label>Deception (Cha):<br><input type="text" name="deception" style="width:100%;"></label>
-				<label>History (Int):<br><input type="text" name="history" style="width:100%;"></label>
-				<label>Insight (Wis):<br><input type="text" name="insight" style="width:100%;"></label>
-				<label>Intimidation (Cha):<br><input type="text" name="intimidation" style="width:100%;"></label>
-				<label>Investigation (Int):<br><input type="text" name="investigation" style="width:100%;"></label>
-				<label>Medicine (Wis):<br><input type="text" name="medicine" style="width:100%;"></label>
-				<label>Nature (Int):<br><input type="text" name="nature" style="width:100%;"></label>
-				<label>Perception (Wis):<br><input type="text" name="perception" style="width:100%;"></label>
-				<label>Performance (Cha):<br><input type="text" name="performance" style="width:100%;"></label>
-				<label>Persuasion (Cha):<br><input type="text" name="persuasion" style="width:100%;"></label>
-				<label>Religion (Int):<br><input type="text" name="religion" style="width:100%;"></label>
-				<label>Sleight of Hand (Dex):<br><input type="text" name="sleightOfHand" style="width:100%;"></label>
-				<label>Stealth (Dex):<br><input type="text" name="stealth" style="width:100%;"></label>
-				<label>Survival (Wis):<br><input type="text" name="survival" style="width:100%;"></label>
-
-				<div style="grid-column: span 3;"><h2>Spellcasting</h2></div>
-				<label>Spellcasting Class:<br><input type="text" name="spellcastingClass" style="width:100%;"></label>
-				<label>Spellcasting Ability:<br><input type="text" name="spellcastingAbility" style="width:100%;"></label>
-				<label>Spell Save DC:<br><input type="text" name="spellSaveDC" style="width:100%;"></label>
-				<label>Spell Attack Bonus:<br><input type="text" name="spellAttackBonus" style="width:100%;"></label>
-				<label style="grid-column: span 3;">Cantrips:<br><textarea name="cantrips" rows="2" style="width:100%;"></textarea></label>
-				<label style="grid-column: span 3;">Prepared Spells:<br><textarea name="preparedSpells" rows="2" style="width:100%;"></textarea></label>
-				<label style="grid-column: span 3;">Spell Slots & Usage:<br><textarea name="spellSlots" rows="2" style="width:100%;"></textarea></label>
-      </div>
-
-      <div style="text-align:center; margin-top:20px; margin-bottom:50px;">
-        <button type="button" onclick="exportCharacter()">Export</button>
-        <button type="button" onclick="importCharacter()">Import</button>
-        <input type="file" id="importFile" style="display:none;" onchange="handleImportFile(event)">
-      </div>
-    </form>
-  </main>
-
-  <footer>
-    Information produced under the OGL, available <a href="http://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf">here</a>.<br>
-      Dungeons & Dragons, D&D Beyond, D&D, Wizards of the Coast, the dragon ampersand, and all other Wizards of the Coast product names, campaign settings, their respective logos, and The World's Greatest Roleplaying Game are © and trademark Wizards of the Coast in the U.S.A. and other countries. © 2024 Wizards.<br>
-      Created for Code:You Tuesday, July 15, 2025 by Evan Alexander Wheeler
-  </footer>
-</body>
+    </body>
 </html>
