@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="./images/dndfavicon.png" />
+    <title>D&D 5E Toolkit</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/script.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap"
+      rel="stylesheet"
+    />
+      <style>
+        body { padding: 20px; background: black;}
+        pre { background: black; color: red; padding: 10px; overflow: auto; white-space: pre-wrap; text-align: left;}
+        .link { color: white; cursor: pointer; text-decoration: underline; margin: 3px 0; }
+      </style>
+  </head>
+  <body>
+    <div class="hamburger" onclick="toggleMenu()">
+      <img src="images\dndicons\icons8-dungeons-and-dragons-48.png" />
+    </div>
+
+    <div class="side-menu" id="sideMenu">
+      <div class="menu-spacer"></div>
+      <a href="/index.html" class="menu-btn">Home</a>
+      <a href="/dmg.html" class="menu-btn">Dungeon Master's Guide</a>
+      <a href="/phb.html" class="menu-btn">Player's Handbook</a>
+      <a href="/mm.html" class="menu-btn">Monster Manual</a>
+      <a href="/char.html" class="menu-btn">Character Sheet(s)</a>
+      <a href="/dice.html" class="menu-btn">Dice Roller</a>
+      ---<br />
+      <a href="/api.html" class="menu-btn">API Browser</a>
+      ---<br />
+      ---<br />
+      ---<br />
+      <a href="https://www.dnd5eapi.co/">D&D 5E API</a>
+      <a href="https://dndstore.wizards.com/us/en">D&D Official Store</a>
+      <a href="https://www.dndbeyond.com/">D&D Beyond</a>
+      <a href="https://company.wizards.com/en">WotC</a>
+      ---<br />
+      <a href="/legal.html">Legal</a>
+    </div>
+
+    <main id="main-content">
+      <img src="./images/DND Logo.png" alt="D&D Logo" /><br />
+      <!-- BEGIN PAGE -->
+      <div class="shell-wrapper">
+        <h1>D&D 5E API Browser</h1>
+        <h2>https://www.dnd5eapi.co/</h2>
+        <button onclick="makeRequest()" style="
+        padding: 10px 32px; 
+        font-size: 16px; 
+        margin: 10px; 
+        background-color: red; 
+        color: white;
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        ">Reload API Root</button>
+
+        <h2>Response:</h2>
+        <pre id="response"></pre>
+
+        <script>
+          const BASE_URL = "https://www.dnd5eapi.co/api/";
+
+          async function makeRequest(urlOverride = null) {
+            const url = urlOverride || BASE_URL;
+
+            try {
+              const response = await fetch(url);
+              const contentType = response.headers.get("Content-Type");
+              const data = contentType.includes("application/json")
+                ? await response.json()
+                : await response.text();
+              displayResponse(data, url);
+            } catch (err) {
+              document.getElementById("response").textContent =
+                "Error: " + err.message;
+            }
+          }
+
+          function resolveUrl(base, relative) {
+            try {
+              return new URL(relative, base).href;
+            } catch {
+              return null;
+            }
+          }
+
+          function displayResponse(data, baseUrl) {
+            const container = document.getElementById("response");
+            container.innerHTML = "";
+
+            if (typeof data === "object") {
+              const formatted = JSON.stringify(data, null, 2);
+              container.textContent = formatted;
+
+              const allText = JSON.stringify(data);
+              const matches = [
+                ...allText.matchAll(
+                  /"(https?:\/\/[^"]+|\/[^"]+|[^"]+\/[^"]+)"/g
+                ),
+              ];
+              const uniqueLinks = new Set();
+
+              matches.forEach((match) => {
+                const rawLink = match[1];
+                if (!rawLink.match(/\.(png|jpg|css|js|ico)$/)) {
+                  const fullUrl = resolveUrl(baseUrl, rawLink);
+                  if (fullUrl) uniqueLinks.add(fullUrl);
+                }
+              });
+
+              if (uniqueLinks.size > 0) {
+                container.innerHTML += `\n\n<b>API Links:</b><br>`;
+                uniqueLinks.forEach((link) => {
+                  const a = document.createElement("div");
+                  a.className = "link";
+                  a.textContent = link;
+                  a.onclick = () => makeRequest(link);
+                  container.appendChild(a);
+                });
+              }
+            } else {
+              container.textContent = data;
+            }
+          }
+
+          makeRequest(); // load on startup
+        </script>
+      </div>
+    </main>
+  </body>
+</html>

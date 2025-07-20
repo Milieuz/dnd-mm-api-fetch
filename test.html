@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>D&D 5E API Browser</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #f0f0f0; }
+    pre { background: black; color: red; padding: 10px; overflow: auto; }
+    .link { color: #0af; cursor: pointer; text-decoration: underline; margin: 3px 0; }
+  </style>
+</head>
+<body>
+  <h1>D&D 5E API Browser</h1>
+  <button onclick="makeRequest()">Reload API Root</button>
+
+  <h2>Response:</h2>
+  <pre id="response"></pre>
+
+  <script>
+    const BASE_URL = 'https://www.dnd5eapi.co/api/';
+
+    async function makeRequest(urlOverride = null) {
+      const url = urlOverride || BASE_URL;
+
+      try {
+        const response = await fetch(url);
+        const contentType = response.headers.get('Content-Type');
+        const data = contentType.includes('application/json') ? await response.json() : await response.text();
+        displayResponse(data, url);
+      } catch (err) {
+        document.getElementById('response').textContent = 'Error: ' + err.message;
+      }
+    }
+
+    function resolveUrl(base, relative) {
+      try {
+        return new URL(relative, base).href;
+      } catch {
+        return null;
+      }
+    }
+
+    function displayResponse(data, baseUrl) {
+      const container = document.getElementById('response');
+      container.innerHTML = '';
+
+      if (typeof data === 'object') {
+        const formatted = JSON.stringify(data, null, 2);
+        container.textContent = formatted;
+
+        const allText = JSON.stringify(data);
+        const matches = [...allText.matchAll(/"(https?:\/\/[^"]+|\/[^"]+|[^"]+\/[^"]+)"/g)];
+        const uniqueLinks = new Set();
+
+        matches.forEach(match => {
+          const rawLink = match[1];
+          if (!rawLink.match(/\.(png|jpg|css|js|ico)$/)) {
+            const fullUrl = resolveUrl(baseUrl, rawLink);
+            if (fullUrl) uniqueLinks.add(fullUrl);
+          }
+        });
+
+        if (uniqueLinks.size > 0) {
+          container.innerHTML += `\n\n<b>Detected Links:</b><br>`;
+          uniqueLinks.forEach(link => {
+            const a = document.createElement('div');
+            a.className = 'link';
+            a.textContent = link;
+            a.onclick = () => makeRequest(link);
+            container.appendChild(a);
+          });
+        }
+      } else {
+        container.textContent = data;
+      }
+    }
+
+    makeRequest(); // load on startup
+  </script>
+</body>
+</html>

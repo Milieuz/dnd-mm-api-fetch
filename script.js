@@ -232,42 +232,111 @@ form.addEventListener("submit", (event) => {
       const imageUrl = `https://www.dnd5eapi.co/api/2014/images/monsters/${slug}.png`;
 
       secondaryDisplay.innerHTML += `
-        <strong>Name:</strong> ${data.name}<br>
+        <h1><strong>Name:</strong> ${data.name}</h1>
         <strong>Size:</strong> ${data.size}<br>
         <strong>Type:</strong> ${data.type} (${data.subtype || "None"})<br>
-        <strong>Alignment:</strong> ${data.alignment}<br><br>
-
-        <strong>Armor Class:</strong> ${getNested(() => data.armor_class[0].value)} 
-          (${getNested(() => data.armor_class[0].armor[0].name)}, 
-           ${getNested(() => data.armor_class[0].armor[1].name)})<br>
+        <strong>Alignment:</strong> ${data.alignment}<br>
+        <hr>
+        <strong>Armor Class:</strong> 
+        ${getNested(() => data.armor_class[0].value)} 
+        (${getNested(() => data.armor_class[0].type)}, 
+        ${getNested(() => data.armor_class[0].armor[0].name)})<br>
 
         <strong>Hit Points:</strong> ${data.hit_points} (${data.hit_points_roll})<br>
-        <strong>Speed:</strong> ${getNested(() => data.speed.walk)}<br><br>
+        <strong>Speed:</strong> ${getNested(() => data.speed.walk)}<br>
+        <hr>
 
-        <strong>STR:</strong> ${data.strength} |
-        <strong>DEX:</strong> ${data.dexterity} |
-        <strong>CON:</strong> ${data.constitution} |
-        <strong>INT:</strong> ${data.intelligence} |
-        <strong>WIS:</strong> ${data.wisdom} |
-        <strong>CHA:</strong> ${data.charisma}<br><br>
+        <div style="display: flex; justify-content: space-between; text-align: center; width: 100%; max-width: 800px; margin: 0 auto; gap: 0.5rem; flex-wrap: wrap;">
+            <div><strong>STR:</strong> ${data.strength} (${Math.floor((data.strength - 10) / 2) >= 0 ? "+" : ""}${Math.floor((data.strength - 10) / 2)})</div>
+            <div><strong>DEX:</strong> ${data.dexterity} (${Math.floor((data.dexterity - 10) / 2) >= 0 ? "+" : ""}${Math.floor((data.dexterity - 10) / 2)})</div>
+            <div><strong>CON:</strong> ${data.constitution} (${Math.floor((data.constitution - 10) / 2) >= 0 ? "+" : ""}${Math.floor((data.constitution - 10) / 2)})</div>
+            <div><strong>INT:</strong> ${data.intelligence} (${Math.floor((data.intelligence - 10) / 2) >= 0 ? "+" : ""}${Math.floor((data.intelligence - 10) / 2)})</div>
+            <div><strong>WIS:</strong> ${data.wisdom} (${Math.floor((data.wisdom - 10) / 2) >= 0 ? "+" : ""}${Math.floor((data.wisdom - 10) / 2)})</div>
+            <div><strong>CHA:</strong> ${data.charisma} (${Math.floor((data.charisma - 10) / 2) >= 0 ? "+" : ""}${Math.floor((data.charisma - 10) / 2)})</div>
+        </div>
+        <hr>
 
-        <strong>Proficiency:</strong> ${getNested(() => data.proficiencies[0].proficiency.name)} 
-        +${getNested(() => data.proficiencies[0].value)}<br>
+        <strong>Proficiencies:</strong>
+        ${data.proficiencies.map(p =>
+          `${p.proficiency.name} +${p.value}`
+        ).join(", ")}<br>
+        <strong>Proficiency Bonus:</strong> ${data.proficiency_bonus}<br>
 
         <strong>Senses:</strong> darkvision ${getNested(() => data.senses.darkvision)}, 
         passive perception ${getNested(() => data.senses.passive_perception)}<br>
 
         <strong>Languages:</strong> ${data.languages}<br>
-        <strong>Challenge Rating:</strong> ${data.challenge_rating} (${data.xp} XP)<br><br>
+        <strong>Challenge Rating:</strong> ${data.challenge_rating} (${data.xp} XP)<br>
+        <hr>
 
-        <strong>Special Ability:</strong> ${getNested(() => data.special_abilities[0].name)} - 
-        ${getNested(() => data.special_abilities[0].desc)}<br><br>
+        <strong><u>Special Abilities:</u></strong><br>
 
-        <strong>Actions:</strong><br>
-        ${getNested(() => data.actions[0].name)} - ${getNested(() => data.actions[0].desc)}<br>
-        ${getNested(() => data.actions[1].name)} - ${getNested(() => data.actions[1].desc)}<br><br>
+        ${(
+          getNested(() => data.special_abilities[0].name) !== "N/A" &&
+          getNested(() => data.special_abilities[0].desc) !== "N/A"
+        ) ? `
+          ${getNested(() => data.special_abilities[0].name)} - 
+          ${getNested(() => data.special_abilities[0].desc)}<br><br>
+        ` : ``}
 
-        <img src="${imageUrl}" onerror="this.src='https://via.placeholder.com/150?text=No+Image'">
+        ${(
+          getNested(() => data.special_abilities[1].name) !== "N/A" &&
+          getNested(() => data.special_abilities[1].desc) !== "N/A"
+        ) ? `
+          ${getNested(() => data.special_abilities[1].name)} - 
+          ${getNested(() => data.special_abilities[1].desc)}<br>
+        ` : ``}
+
+        ${(
+          getNested(() => data.special_abilities[1].spellcasting?.dc) !== "N/A" &&
+          getNested(() => data.special_abilities[1].spellcasting?.ability?.name) !== "N/A" &&
+          getNested(() => data.special_abilities[1].spellcasting?.spells?.[0]?.name) !== "N/A"
+        ) ? `
+          <em>Spellcasting (DC ${getNested(() => data.special_abilities[1].spellcasting.dc)}, Ability: 
+          ${getNested(() => data.special_abilities[1].spellcasting.ability.name)}):</em><br>
+          • ${getNested(() => data.special_abilities[1].spellcasting.spells[0].name)} 
+          (Level ${getNested(() => data.special_abilities[1].spellcasting.spells[0].level)}, 
+          ${getNested(() => data.special_abilities[1].spellcasting.spells[0].usage.type)})<br>
+          • ${getNested(() => data.special_abilities[1].spellcasting.spells[1].name)} 
+          (Level ${getNested(() => data.special_abilities[1].spellcasting.spells[1].level)}, 
+          ${getNested(() => data.special_abilities[1].spellcasting.spells[1].usage.times)}/day)<br>
+          • ${getNested(() => data.special_abilities[1].spellcasting.spells[2].name)} 
+          (Level ${getNested(() => data.special_abilities[1].spellcasting.spells[2].level)}, 
+          ${getNested(() => data.special_abilities[1].spellcasting.spells[2].usage.times)}/day)<br><br>
+        ` : ``}
+
+        ${(
+          getNested(() => data.special_abilities[2].name) !== "N/A" &&
+          getNested(() => data.special_abilities[2].desc) !== "N/A"
+        ) ? `
+          ${getNested(() => data.special_abilities[2].name)} - 
+          ${getNested(() => data.special_abilities[2].desc)}<br>
+        ` : ``}
+
+        <hr>
+
+
+        <strong><u>Actions:</u></strong><br>
+        ${getNested(() => data.actions[0].name)} - 
+        ${getNested(() => data.actions[0].desc)}<br>
+        Damage: ${getNested(() => data.actions[0].damage[0].damage_dice)} 
+        (${getNested(() => data.actions[0].damage[0].damage_type.name)})<br><br>
+
+        ${getNested(() => data.actions[1].name)} - 
+        ${getNested(() => data.actions[1].desc)}<br>
+        Damage: ${getNested(() => data.actions[1].damage[0].damage_dice)} 
+        (${getNested(() => data.actions[1].damage[0].damage_type.name)})<br><br>
+
+
+        <img src="${imageUrl}" onerror="this.src='https://via.placeholder.com/150?text=No+Image'"><br>
+
+        <strong>Monster URL:</strong> 
+        <a href="https://www.dnd5eapi.co${getNested(() => data.url)}">
+          https://www.dnd5eapi.co${getNested(() => data.url)}
+        </a><br>
+
+        <strong>Last Updated:</strong> ${getNested(() => data.updated_at)}<br><br>
+
       `;
 
       mainDisplay.style.display = 'none';
