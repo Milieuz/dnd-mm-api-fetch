@@ -1,4 +1,3 @@
-
 html, body {
   height: 100%;
   margin: 0;
@@ -143,8 +142,8 @@ body.menu-open #main-content {
 
 .import-export-buttons {
   position: absolute;
-  top: 2px;
-  right: 2px;
+  top: 26px;
+  right: 26px;
   display: flex;
   gap: 3px;
   z-index: 1;
@@ -234,6 +233,38 @@ body.menu-open #main-content {
 input {
   color: black;
   background-color: white;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.grid-item label {
+  display: flex;
+  flex-direction: column;
+}
+
+.stretch-textarea {
+  width: 100%;
+  resize: vertical;
+  overflow: hidden;
+  min-height: 3em;
+}
+
+.stat-column-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+}
+
+.stat-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 @media screen and (max-width: 768px) {
