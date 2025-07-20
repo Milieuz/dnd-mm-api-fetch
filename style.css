@@ -1,90 +1,90 @@
+
 html, body {
   height: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;
+  background-color: black;
+  color: red;
+  text-align: center;
+  font-family: "MedievalSharp", cursive;
 }
+
 main {
   flex: 1;
 }
 
-body {
-    color: red;
-    text-align: center;
-    background-color: black;
-    margin: 0;
-    /* height: 100%; */
-  }
-  
-  .monsters-display{
-    text-align: left;
-    margin: 20px;
-  }
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: red;
+}
 
-  .monsters-display img {
+.monsters-display {
+  text-align: left;
+  margin: 20px;
+}
+.monsters-display img {
   max-width: 100%;
   height: auto;
   display: inline-block;
 }
-  
-  .main-display{
-    display:none;
-  }
-  
-  .secondary-display{
-    display:none;
-  }
-  
-  .navbar {
-    background-color: #12181C;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    color: red;
-    padding: 10px;
-    font-family: "MedievalSharp", cursive;
-    font-size: 20px;
-    border-bottom: 1px solid red;
-  }
-  
-   /* unvisited link */
-  a:link {
-    color: red;
-  }
-  
-  /* visited link */
-  a:visited {
-    color: red;
-  }
-  
-  /* mouse over link */
-  a:hover {
-    color: red;
-  }
-  
-  /* selected link */
-  a:active {
-    color: red;
-  } 
-  
-  .all-monsters-btn{
-    background-color: red;
-    border: none;
-    color: white;
-    padding: 10px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    font-family: "MedievalSharp", cursive;
-    border-radius: 8px;
-    margin: 10px;
-  }
-  
+
+.main-display,
+.secondary-display {
+  display: none;
+}
+
+.navbar {
+  background-color: #12181C;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  border-bottom: 1px solid red;
+  display: none;
+}
+
+.all-monsters-btn,
+.import-export-buttons button,
+.menu-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.all-monsters-btn {
+  padding: 10px 32px;
+  font-size: 16px;
+  margin: 10px;
+}
+
+.menu-btn {
+  display: block;
+  font-size: 19px;
+  padding: 10px;
+  margin: 5px 0;
+}
+.menu-btn:hover {
+  background-color: white;
+  color: red;
+  transform: scale(1.05);
+}
+
+a.menu-btn {
+  color: white;
+}
+
 footer {
   background-color: #12181C;
   width: 100%;
-  color: red;
   padding: 5px;
   font-size: 11px;
   border-top: 1px solid red;
@@ -96,10 +96,8 @@ footer {
   top: 15px;
   left: 15px;
   font-size: 28px;
-  color: red;
   z-index: 1001;
   cursor: pointer;
-  font-family: "MedievalSharp", cursive;
 }
 
 .menu-spacer {
@@ -113,9 +111,7 @@ footer {
   width: 250px;
   height: 100%;
   background-color: #12181C;
-  color: red;
   padding: 20px;
-  font-family: "MedievalSharp", cursive;
   font-size: 22px;
   border-right: 1px solid red;
   transition: left 0.3s ease-in-out;
@@ -128,18 +124,11 @@ footer {
 .side-menu.open {
   left: 0;
 }
-
 .side-menu a {
-  color: red;
   text-decoration: none;
 }
-
 .side-menu a:hover {
   text-decoration: underline;
-}
-
-.navbar {
-  display: none; /* hide original navbar */
 }
 
 #main-content {
@@ -150,48 +139,24 @@ footer {
 
 body.menu-open #main-content {
   margin-left: 285px;
-  transition: margin-left 0.3s ease-in-out;
-
 }
 
-/* adjust footer when menu is open */
-body.menu-open footer {
-  /* margin-left: 200px; */
-  transition: margin-left 0.3s ease-in-out;
-
+.import-export-buttons {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  display: flex;
+  gap: 3px;
+  z-index: 1;
 }
 
-/* body.menu-open .grid-container {
-margin-left: 200px;
-  transition: margin-left 0.3s ease-in-out;
-} */
-
-
-.menu-btn {
-  display: block;
-  background-color: red;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  font-family: "MedievalSharp", cursive;
-  font-size: 19px;
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 6px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+.import-export-buttons button {
+  padding: 2px 6px;
+  font-size: 0.8rem;
+  line-height: 1;
+  border-radius: 4px;
 }
 
-.menu-btn:hover {
-  background-color: white;
-  color: red;
-  transform: scale(1.05);
-}
-
-a.menu-btn {
-  color: white;
-}
-
-/* DICE STYLE SECTION */
 .dice-selector {
   display: grid;
   gap: 10px;
@@ -199,17 +164,13 @@ a.menu-btn {
   margin: auto;
   text-align: left;
 }
-
 .dice-selector label {
   background-color: #12181C;
   padding: 10px;
   border: 1px solid red;
   border-radius: 8px;
-  color: red;
-  display: block;
   text-align: center;
 }
-
 .dice-selector input[type="number"] {
   width: 100px;
   margin-left: 10px;
@@ -222,34 +183,60 @@ a.menu-btn {
   text-align: center;
 }
 
-.nameplate-header {
-  position: relative;
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 5px;
+  padding: 5px;
+  grid-template-areas:
+    "nameplate info-char info-char"
+    "info-stats info-combat info-personality"
+    "info-stats info-attacks info-featandtrait"
+    "info-profandlang info-equipment info-featandtrait"
+    "nameplate2 info-char-physical info-char-physical"
+    "info-appearance info-allyandorg info-allyandorg"
+    "info-backstory info-featuresandtraits info-featuresandtraits"
+    "info-backstory info-treasure info-treasure"
+    "spell-class spell-stats spell-stats"
+    "spell-levels spell-levels spell-levels";
 }
 
-.import-export-buttons {
-  position: absolute;
-  top: 2px;
-  right: 2px;
-  display: flex;
-  gap: 3px;
-  z-index: 1; /* ensure it's on top */
+.grid-item {
+  background-color: #ddd;
+  border: 1px solid #999;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2rem;
 }
 
-.import-export-buttons button {
-  padding: 2px 6px;
-  font-size: 0.8rem;
-  line-height: 1;
-  background-color: red;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.grid-item:nth-child(1) { grid-area: nameplate; }
+.grid-item:nth-child(2) { grid-area: info-char; display: flex; gap: 1em; flex-wrap: wrap; }
+.grid-item:nth-child(3) { grid-area: info-stats; display: flex; gap: 1rem; justify-content: space-between; }
+.grid-item:nth-child(3) .stat-column { display: flex; flex-direction: column; flex: 1; }
+.grid-item:nth-child(4) { grid-area: info-combat; }
+.grid-item:nth-child(5) { grid-area: info-personality; }
+.grid-item:nth-child(6) { grid-area: info-attacks; }
+.grid-item:nth-child(7) { grid-area: info-featandtrait; }
+.grid-item:nth-child(8) { grid-area: info-profandlang; }
+.grid-item:nth-child(9) { grid-area: info-equipment; }
+.grid-item:nth-child(10) { grid-area: nameplate2; }
+.grid-item:nth-child(11) { grid-area: info-char-physical; }
+.grid-item:nth-child(12) { grid-area: info-appearance; }
+.grid-item:nth-child(13) { grid-area: info-allyandorg; }
+.grid-item:nth-child(14) { grid-area: info-backstory; }
+.grid-item:nth-child(15) { grid-area: info-featuresandtraits; }
+.grid-item:nth-child(16) { grid-area: info-treasure; }
+.grid-item:nth-child(17) { grid-area: spell-class; }
+.grid-item:nth-child(18) { grid-area: spell-stats; }
+.grid-item:nth-child(19) { grid-area: spell-levels; }
+
+input {
+  color: black;
+  background-color: white;
 }
 
-
-
-
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .side-menu {
     width: 125px;
     padding: 5px;
@@ -258,17 +245,13 @@ a.menu-btn {
 
   #main-content {
     padding: 15px;
-    margin-left: 0px;
+    margin-left: 0;
   }
 
   body.menu-open #main-content,
   body.menu-open footer {
     margin-left: 130px;
   }
-
-  body.menu-open .grid-container {
-  margin-left: 0px;
-}
 
   .hamburger {
     left: 10px;
@@ -279,7 +262,7 @@ a.menu-btn {
     width: 90px;
     height: 90px;
     padding: 16px;
-    margin: 0px;
+    margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -287,5 +270,14 @@ a.menu-btn {
 
   footer {
     position: static;
+  }
+
+  .grid-container {
+    display: block;
+  }
+
+  .grid-item {
+    display: block;
+    margin-bottom: 5px;
   }
 }

@@ -1,113 +1,508 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-          <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="./images/dndfavicon.png" />
-        <title>CHARACTER SHEET</title>
-            
-        <link rel="stylesheet" href="test.css" />
-        <link rel="stylesheet" href="style.css" />
-        <script src="charscript.js" defer></script>
-        <script src="script.js" defer></script>
-        
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <div class="hamburger" onclick="toggleMenu()">
-            <img src="images/dndicons/icons8-dungeons-and-dragons-48.png" alt="menu" />
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="./images/dndfavicon.png" rel="icon"/>
+  <title>
+   D&D 5E Character Sheet
+  </title>
+  <link href="test.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+  <script defer="" src="charscript.js">
+  </script>
+  <script defer="" src="script.js">
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&amp;display=swap" rel="stylesheet"/>
+  <style>
+   .grid-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.grid-item label {
+  display: flex;
+  flex-direction: column;
+}
+.stretch-textarea {
+  width: 100%;
+  resize: vertical;
+  overflow: hidden;
+  min-height: 3em;
+}
+  </style>
+ </head>
+ <body>
+  <div class="hamburger" onclick="toggleMenu()">
+   <img alt="menu" src="images/dndicons/icons8-dungeons-and-dragons-48.png"/>
+  </div>
+  <div class="side-menu" id="sideMenu">
+   <div class="menu-spacer">
+   </div>
+   <a class="menu-btn" href="/index.html">
+    Home
+   </a>
+   <a class="menu-btn" href="/dmg.html">
+    Dungeon Master's Guide
+   </a>
+   <a class="menu-btn" href="/phb.html">
+    Player's Handbook
+   </a>
+   <a class="menu-btn" href="/mm.html">
+    Monster Manual
+   </a>
+   <a class="menu-btn" href="/char.html">
+    Character Sheet(s)
+   </a>
+   <a class="menu-btn" href="/dice.html">
+    Dice Roller
+   </a>
+   ---
+   <br/>
+   ---
+   <br/>
+   ---
+   <br/>
+   ---
+   <br/>
+   ---
+   <br/>
+   <a href="https://www.dnd5eapi.co/">
+    D&amp;D 5E API
+   </a>
+   <a href="https://dndstore.wizards.com/us/en">
+    D&amp;D Official Store
+   </a>
+   <a href="https://www.dndbeyond.com/">
+    D&amp;D Beyond
+   </a>
+   <a href="https://company.wizards.com/en">
+    WotC
+   </a>
+  </div>
+  <main id="main-content">
+   <form id="character-sheet">
+    <div class="sheet-container">
+     <div class="grid-container">
+      <div class="grid-item nameplate-header">
+       <div class="name-label">
+        <label>
+         Character Name:
+         <br/>
+         <input name="characterName" style="width:100%;" type="text"/>
+        </label>
+       </div>
+       <div class="import-export-buttons">
+        <button onclick="exportCharacter()" type="button">
+         Export
+        </button>
+        <button onclick="importCharacter()" type="button">
+         Import
+        </button>
+        <input id="importFile" onchange="handleImportFile(event)" style="display:none;" type="file"/>
+       </div>
+      </div>
+      <div class="grid-item">
+       <span>
+        <label>
+         Class &amp; Level:
+         <br/>
+         <input name="classLevel" style="width:100%;" type="text"/>
+        </label>
+       </span>
+       <span>
+        <label>
+         Background:
+         <br/>
+         <input name="background" style="width:100%;" type="text"/>
+        </label>
+       </span>
+       <span>
+        <label>
+         Player Name:
+         <br/>
+         <input name="playerName" style="width:100%;" type="text"/>
+        </label>
+       </span>
+       <span>
+        <label>
+         Race:
+         <br/>
+         <input name="race" style="width:100%;" type="text"/>
+        </label>
+       </span>
+       <span>
+        <label>
+         Alignment:
+         <br/>
+         <input name="alignment" style="width:100%;" type="text"/>
+        </label>
+       </span>
+       <span>
+        <label>
+         Experience Points:
+         <br/>
+         <input name="xp" style="width:100%;" type="text"/>
+        </label>
+       </span>
+      </div>
+      <div class="grid-item">
+       <div class="stat-column">
+        <div>
+         <label>
+          Strength:
+          <br/>
+          <input name="strength" oninput="calculateModifiers()" style="width:100%;" type="text"/>
+         </label>
         </div>
-
-        <div class="side-menu" id="sideMenu">
-            <div class="menu-spacer"></div>
-            <a href="/index.html" class="menu-btn">Home</a>
-            <a href="/dmg.html" class="menu-btn">Dungeon Master's Guide</a>
-            <a href="/phb.html" class="menu-btn">Player's Handbook</a>
-            <a href="/mm.html" class="menu-btn">Monster Manual</a>
-            <a href="/char.html" class="menu-btn">Character Sheet(s)</a>
-            <a href="/dice.html" class="menu-btn">Dice Roller</a>
-            ---<br>
-            ---<br>
-            ---<br>
-            ---<br>
-            ---<br>
-            <a href="https://www.dnd5eapi.co/">D&D 5E API</a>
-            <a href="https://dndstore.wizards.com/us/en">D&D Official Store</a>
-            <a href="https://www.dndbeyond.com/">D&D Beyond</a>
-            <a href="https://company.wizards.com/en">WotC</a>
+        <div>
+         <label>
+          Dexterity:
+          <br/>
+          <input name="dexterity" oninput="calculateModifiers()" style="width:100%;" type="text"/>
+         </label>
         </div>
-        <main id="main-content">
-            <form id="character-sheet">
-                <div class="sheet-container">
-                    <div class="grid-container">
-                        <div class="grid-item nameplate-header">
-                            <div class="name-label">
-                                <label>Character Name:<br>
-                                <input type="text" name="characterName" style="width:100%;">
-                                </label>
-                            </div>
-                            <div class="import-export-buttons">
-                                <button type="button" onclick="exportCharacter()">Export</button>
-                                <button type="button" onclick="importCharacter()">Import</button>
-                                <input type="file" id="importFile" style="display:none;" onchange="handleImportFile(event)">
-                            </div>
-                        </div>
-
-
-                        <div class="grid-item"><span><label>Class & Level:<br><input type="text" name="classLevel" style="width:100%;"></label></span><span><label>Background:<br><input type="text" name="background" style="width:100%;"></label></span><span><label>Player Name:<br><input type="text" name="playerName" style="width:100%;"></label></span><span><label>Race:<br><input type="text" name="race" style="width:100%;"></label></span><span><label>Alignment:<br><input type="text" name="alignment" style="width:100%;"></label></span><span><label>Experience Points:<br><input type="text" name="xp" style="width:100%;"></label></span></div>
-                        <div class="grid-item">
-                        <div class="stat-column">
-                            <div><label>Strength:<br><input type="text" name="strength" style="width:100%;" oninput="calculateModifiers()"></label></div>
-                            <div><label>Dexterity:<br><input type="text" name="dexterity" style="width:100%;" oninput="calculateModifiers()"></label></div>
-                            <div><label>Constitution:<br><input type="text" name="constitution" style="width:100%;" oninput="calculateModifiers()"></label></div>
-                            <div><label>Intelligence:<br><input type="text" name="intelligence" style="width:100%;" oninput="calculateModifiers()"></label></div>
-                            <div><label>Wisdom:<br><input type="text" name="wisdom" style="width:100%;" oninput="calculateModifiers()"></label></div>
-                            <div><label>Charisma:<br><input type="text" name="charisma" style="width:100%;" oninput="calculateModifiers()"></label></div>
-                        </div>
-                        <div class="stat-column">
-                            <div><label>STR Modifier:<br><input type="text" name="strengthMod" readonly style="width:100%;"></label></div>
-                            <div><label>DEX Modifier:<br><input type="text" name="dexterityMod" readonly style="width:100%;"></label></div>
-                            <div><label>CON Modifier:<br><input type="text" name="constitutionMod" readonly style="width:100%;"></label></div>
-                            <div><label>INT Modifier:<br><input type="text" name="intelligenceMod" readonly style="width:100%;"></label></div>
-                            <div><label>WIS Modifier:<br><input type="text" name="wisdomMod" readonly style="width:100%;"></label></div>
-                            <div><label>CHA Mod:<br><input type="text" name="charismaMod" readonly style="width:100%;"></label></div>
-                        </div>
-                        </div>    
-                        <div class="grid-item"><label>Armor Class:<br><input type="text" name="armorClass" style="width:100%;"></label> <br> <label>Initiative:<br><input type="text" name="initiative" style="width:100%;"></label> <br> <label>Speed:<br><input type="text" name="speed" style="width:100%;"></label> <br> <label>Current HP:<br><input type="text" name="hpCurrent" style="width:100%;"></label> <br> <label>Temp HP:<br><input type="text" name="hpTemp" style="width:100%;"></label> <br> <label>Hit Dice:<br><input type="text" name="hitDice" style="width:100%;"></label> <br> <label>Death Saves:<br><input type="text" name="deathSaves" style="width:100%;"></label></div>
-                        <div class="grid-item"><label style="grid-column: span 3;">Personality Traits:<br><textarea name="personalityTraits" rows="2" style="width:100%;"></textarea></label> <br> <label style="grid-column: span 3;">Ideals:<br><textarea name="ideals" rows="2" style="width:100%;"></textarea></label> <br> <label style="grid-column: span 3;">Bonds:<br><textarea name="bonds" rows="2" style="width:100%;"></textarea></label> <br> <label style="grid-column: span 3;">Flaws:<br><textarea name="flaws" rows="2" style="width:100%;"></textarea></label></div>
-                        <div class="grid-item"><label style="grid-column: span 3;">Attacks & Spellcasting:<br>Name - ATK Bonus - DMG/Type<br><textarea name="attacksAndSpellcasting" rows="2" style="width:100%;"></textarea></label><br></div>
-                        <div class="grid-item"><label style="grid-column: span 3;">Features & Traits:<br><textarea name="featuresAndTraits" rows="2" style="width:100%;"></textarea></label></div>
-                        <div class="grid-item"><label style="grid-column: span 3;">Other Proficiencies & Languages:<br><textarea name="proficienciesAndLanguages" rows="2" style="width:100%;"></textarea></label></div>
-                        <div class="grid-item"><label style="grid-column: span 3;">Equipment:<br><textarea name="equipment" rows="2" style="width:100%;"></textarea></label><br><label>CP:<br><input type="text" name="cp" style="width:100%;"></label><label>SP:<br><input type="text" name="sp" style="width:100%;"></label><label>EP:<br><input type="text" name="ep" style="width:100%;"></label><label>GP:<br><input type="text" name="gp" style="width:100%;"></label><label>PP:<br><input type="text" name="pp" style="width:100%;"></label></div>
-                        <div class="grid-item"><label>Character Name:<br><input type="text" name="characterName2" style="width:100%;"></label></div>
-                        <div class="grid-item"><label>Age:<br><input type="text" name="age" style="width:100%;"></label><label>Height:<br><input type="text" name="height" style="width:100%;"></label><label>Weight:<br><input type="text" name="weight" style="width:100%;"></label><label>Eyes:<br><input type="text" name="eyes" style="width:100%;"></label><label>Skin:<br><input type="text" name="skin" style="width:100%;"></label><label>Hair:<br><input type="text" name="hair" style="width:100%;"></label></div>
-                        <div class="grid-item"><label style="grid-column: span 3;">Appearance:<br><textarea name="appearance" rows="2" style="width:100%;"></textarea></label></div>
-                        <div class="grid-item"><label style="grid-column: span 3;">Allies & Organizations:<br><textarea name="allyAndOrgs" rows="2" style="width:100%;"></textarea></label></div>
-                        <div class="grid-item"><label style="grid-column: span 3;">Backstory:<br><textarea name="backstory" rows="2" style="width:100%;"></textarea></label></div>
-                        <div class="grid-item"><label style="grid-column: span 3;">Features & Traits:<br><textarea name="featuresAndTraits" rows="2" style="width:100%;"></textarea></label></div>
-                        <div class="grid-item"><label style="grid-column: span 3;">Treasure:<br><textarea name="treasure" rows="2" style="width:100%;"></textarea></label></div>
-                        <div class="grid-item"><label>Spellcasting Class:<br><input type="text" name="spellClass" style="width:100%;"></label></div>
-                        <div class="grid-item"><label>Spellcasting Ability:<br><input type="text" name="spellCastingAbility" style="width:100%;"></label><label>Spell Save DC:<br><input type="text" name="spellSaveDC" style="width:100%;"></label><label>Spell Attack Bonus:<br><input type="text" name="spellAttackBonus" style="width:100%;"></label></div>
-                        <div class="grid-item"><label style="grid-column: span 3;">Spells & Levels:<br><textarea name="spellsAndLevels" rows="2" style="width:100%;"></textarea></label></div>
-                    </div>
-                </div>
-                </div>
-                <div style="text-align:center; margin-top:0px; margin-bottom:150px;">
-                <button type="button" onclick="exportCharacter()">Export</button>
-                <button type="button" onclick="importCharacter()">Import</button>
-                <input type="file" id="importFile" style="display:none;" onchange="handleImportFile(event)">
-                </div>
-            </form>
-        </main>
-
-        <footer>
-        Information produced under the OGL, available <a href="http://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf">here</a>.<br>
-        Dungeons & Dragons, D&D Beyond, D&D, Wizards of the Coast, the dragon ampersand, and all other Wizards of the Coast product names, campaign settings, their respective logos, and The World's Greatest Roleplaying Game are © and trademark Wizards of the Coast in the U.S.A. and other countries. © 2024 Wizards.<br>
-        Created for Code:You Tuesday, July 15, 2025 by Evan Alexander Wheeler
-        </footer> 
-
-    </body>
+        <div>
+         <label>
+          Constitution:
+          <br/>
+          <input name="constitution" oninput="calculateModifiers()" style="width:100%;" type="text"/>
+         </label>
+        </div>
+        <div>
+         <label>
+          Intelligence:
+          <br/>
+          <input name="intelligence" oninput="calculateModifiers()" style="width:100%;" type="text"/>
+         </label>
+        </div>
+        <div>
+         <label>
+          Wisdom:
+          <br/>
+          <input name="wisdom" oninput="calculateModifiers()" style="width:100%;" type="text"/>
+         </label>
+        </div>
+        <div>
+         <label>
+          Charisma:
+          <br/>
+          <input name="charisma" oninput="calculateModifiers()" style="width:100%;" type="text"/>
+         </label>
+        </div>
+       </div>
+       <div class="stat-column">
+        <div>
+         <label>
+          STR Modifier:
+          <br/>
+          <input name="strengthMod" readonly="" style="width:100%;" type="text"/>
+         </label>
+        </div>
+        <div>
+         <label>
+          DEX Modifier:
+          <br/>
+          <input name="dexterityMod" readonly="" style="width:100%;" type="text"/>
+         </label>
+        </div>
+        <div>
+         <label>
+          CON Modifier:
+          <br/>
+          <input name="constitutionMod" readonly="" style="width:100%;" type="text"/>
+         </label>
+        </div>
+        <div>
+         <label>
+          INT Modifier:
+          <br/>
+          <input name="intelligenceMod" readonly="" style="width:100%;" type="text"/>
+         </label>
+        </div>
+        <div>
+         <label>
+          WIS Modifier:
+          <br/>
+          <input name="wisdomMod" readonly="" style="width:100%;" type="text"/>
+         </label>
+        </div>
+        <div>
+         <label>
+          CHA Mod:
+          <br/>
+          <input name="charismaMod" readonly="" style="width:100%;" type="text"/>
+         </label>
+        </div>
+       </div>
+      </div>
+      <div class="grid-item">
+       <label>
+        Armor Class:
+        <br/>
+        <input name="armorClass" style="width:100%;" type="text"/>
+       </label>
+       <br/>
+       <label>
+        Initiative:
+        <br/>
+        <input name="initiative" style="width:100%;" type="text"/>
+       </label>
+       <br/>
+       <label>
+        Speed:
+        <br/>
+        <input name="speed" style="width:100%;" type="text"/>
+       </label>
+       <br/>
+       <label>
+        Current HP:
+        <br/>
+        <input name="hpCurrent" style="width:100%;" type="text"/>
+       </label>
+       <br/>
+       <label>
+        Temp HP:
+        <br/>
+        <input name="hpTemp" style="width:100%;" type="text"/>
+       </label>
+       <br/>
+       <label>
+        Hit Dice:
+        <br/>
+        <input name="hitDice" style="width:100%;" type="text"/>
+       </label>
+       <br/>
+       <label>
+        Death Saves:
+        <br/>
+        <input name="deathSaves" style="width:100%;" type="text"/>
+       </label>
+      </div>
+      <div class="grid-item">
+       <label style="grid-column: span 3;">
+        Personality Traits:
+        <br/>
+        <textarea class="stretch-textarea" name="personalityTraits"></textarea>
+       </label>
+       <br/>
+       <label style="grid-column: span 3;">
+        Ideals:
+        <br/>
+        <textarea class="stretch-textarea" name="ideals"></textarea>
+       </label>
+       <br/>
+       <label style="grid-column: span 3;">
+        Bonds:
+        <br/>
+        <textarea class="stretch-textarea" name="bonds"></textarea>
+       </label>
+       <br/>
+       <label style="grid-column: span 3;">
+        Flaws:
+        <br/>
+        <textarea class="stretch-textarea" name="flaws"></textarea>
+       </label>
+      </div>
+      <div class="grid-item">
+       <label style="grid-column: span 3;">
+        Attacks &amp; Spellcasting:
+        <br/>
+        Name - ATK Bonus - DMG/Type
+        <br/>
+        <textarea class="stretch-textarea" name="attacksAndSpellcasting"></textarea>
+       </label>
+       <br/>
+      </div>
+      <div class="grid-item">
+       <label style="grid-column: span 3;">
+        Features &amp; Traits:
+        <br/>
+        <textarea class="stretch-textarea" name="featuresAndTraits"></textarea>
+       </label>
+      </div>
+      <div class="grid-item">
+       <label style="grid-column: span 3;">
+        Other Proficiencies &amp; Languages:
+        <br/>
+        <textarea class="stretch-textarea" name="proficienciesAndLanguages"></textarea>
+       </label>
+      </div>
+      <div class="grid-item">
+       <label style="grid-column: span 3;">
+        Equipment:
+        <br/>
+        <textarea class="stretch-textarea" name="equipment"></textarea>
+       </label>
+       <br/>
+       <label>
+        CP:
+        <br/>
+        <input name="cp" style="width:100%;" type="text"/>
+       </label>
+       <label>
+        SP:
+        <br/>
+        <input name="sp" style="width:100%;" type="text"/>
+       </label>
+       <label>
+        EP:
+        <br/>
+        <input name="ep" style="width:100%;" type="text"/>
+       </label>
+       <label>
+        GP:
+        <br/>
+        <input name="gp" style="width:100%;" type="text"/>
+       </label>
+       <label>
+        PP:
+        <br/>
+        <input name="pp" style="width:100%;" type="text"/>
+       </label>
+      </div>
+      <div class="grid-item">
+       <label>
+        Character Name:
+        <br/>
+        <input name="characterName2" style="width:100%;" type="text"/>
+       </label>
+      </div>
+      <div class="grid-item">
+       <label>
+        Age:
+        <br/>
+        <input name="age" style="width:100%;" type="text"/>
+       </label>
+       <label>
+        Height:
+        <br/>
+        <input name="height" style="width:100%;" type="text"/>
+       </label>
+       <label>
+        Weight:
+        <br/>
+        <input name="weight" style="width:100%;" type="text"/>
+       </label>
+       <label>
+        Eyes:
+        <br/>
+        <input name="eyes" style="width:100%;" type="text"/>
+       </label>
+       <label>
+        Skin:
+        <br/>
+        <input name="skin" style="width:100%;" type="text"/>
+       </label>
+       <label>
+        Hair:
+        <br/>
+        <input name="hair" style="width:100%;" type="text"/>
+       </label>
+      </div>
+      <div class="grid-item">
+       <label style="grid-column: span 3;">
+        Appearance:
+        <br/>
+        <textarea class="stretch-textarea" name="appearance"></textarea>
+       </label>
+      </div>
+      <div class="grid-item">
+       <label style="grid-column: span 3;">
+        Allies &amp; Organizations:
+        <br/>
+        <textarea class="stretch-textarea" name="allyAndOrgs"></textarea>
+       </label>
+      </div>
+      <div class="grid-item">
+       <label style="grid-column: span 3;">
+        Backstory:
+        <br/>
+        <textarea class="stretch-textarea" name="backstory"></textarea>
+       </label>
+      </div>
+      <div class="grid-item">
+       <label style="grid-column: span 3;">
+        Features &amp; Traits:
+        <br/>
+        <textarea class="stretch-textarea" name="featuresAndTraits"></textarea>
+       </label>
+      </div>
+      <div class="grid-item">
+       <label style="grid-column: span 3;">
+        Treasure:
+        <br/>
+        <textarea class="stretch-textarea" name="treasure"></textarea>
+       </label>
+      </div>
+      <div class="grid-item">
+       <label>
+        Spellcasting Class:
+        <br/>
+        <input name="spellClass" style="width:100%;" type="text"/>
+       </label>
+      </div>
+      <div class="grid-item">
+       <label>
+        Spellcasting Ability:
+        <br/>
+        <input name="spellCastingAbility" style="width:100%;" type="text"/>
+       </label>
+       <label>
+        Spell Save DC:
+        <br/>
+        <input name="spellSaveDC" style="width:100%;" type="text"/>
+       </label>
+       <label>
+        Spell Attack Bonus:
+        <br/>
+        <input name="spellAttackBonus" style="width:100%;" type="text"/>
+       </label>
+      </div>
+      <div class="grid-item">
+       <label style="grid-column: span 3;">
+        Spells &amp; Levels:
+        <br/>
+        <textarea class="stretch-textarea" name="spellsAndLevels"></textarea>
+       </label>
+      </div>
+     </div>
+    </div>
+    <div style="text-align:center; margin-top:0px; margin-bottom:150px;">
+     <button onclick="exportCharacter()" type="button">
+      Export
+     </button>
+     <button onclick="importCharacter()" type="button">
+      Import
+     </button>
+     <input id="importFile" onchange="handleImportFile(event)" style="display:none;" type="file"/>
+    </div>
+   </form>
+  </main>
+  <footer>
+   Information produced under the OGL, available
+   <a href="http://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf">
+    here
+   </a>
+   .
+   <br/>
+   Dungeons &amp; Dragons, D&amp;D Beyond, D&amp;D, Wizards of the Coast, the dragon ampersand, and all other Wizards of the Coast product names, campaign settings, their respective logos, and The World's Greatest Roleplaying Game are © and trademark Wizards of the Coast in the U.S.A. and other countries. © 2024 Wizards.
+   <br/>
+   Created for Code:You Tuesday, July 15, 2025 by Evan Alexander Wheeler
+  </footer>
+  <script>
+   document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("textarea.stretch-textarea").forEach((ta) => {
+    const resize = () => {
+      ta.style.height = "auto";
+      ta.style.height = (ta.scrollHeight + 2) + "px";
+    };
+    ta.addEventListener("input", resize);
+    resize();
+  });
+});
+  </script>
+ </body>
 </html>
