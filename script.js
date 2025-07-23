@@ -161,11 +161,29 @@ function displayNextMonster() {
   const monster = data.results[i];
   const slug = monster.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
 
+  // 'HERE' Link queries serach
   const wrapper = document.createElement('div');
   wrapper.innerHTML = `
     <br>Monster #${i + 1} is: ${monster.name}, 
-    <a href="https://www.dnd5eapi.co${monster.url}" target="_blank">Here</a><br>
+    <a href="#" class="search-link" data-name="${monster.name}">Here</a><br>
   `;
+
+  document.querySelectorAll('.search-link').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const name = this.dataset.name;
+
+      // Set the input field
+      const input = document.querySelector('form input');
+      input.value = name;
+
+      // Trigger the search by calling the same logic used by the form
+      const form = document.querySelector('form');
+      const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
+      form.dispatchEvent(submitEvent);
+    });
+  });
+  // 'HERE' Link queries serach
 
   const img = document.createElement('img');
   img.src = `https://www.dnd5eapi.co/api/2014/images/monsters/${slug}.png`;
