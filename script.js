@@ -161,7 +161,7 @@ function displayNextMonster() {
   const monster = data.results[i];
   const slug = monster.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
 
-  // 'HERE' Link queries serach
+  // 'HERE' Link queries search
   const wrapper = document.createElement('div');
   wrapper.innerHTML = `
     <br>Monster #${i + 1} is: ${monster.name}, 
@@ -183,7 +183,7 @@ function displayNextMonster() {
       form.dispatchEvent(submitEvent);
     });
   });
-  // 'HERE' Link queries serach
+  // 'HERE' Link queries search
 
   const img = document.createElement('img');
   img.src = `https://www.dnd5eapi.co/api/2014/images/monsters/${slug}.png`;
