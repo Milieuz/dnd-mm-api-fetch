@@ -6,7 +6,7 @@
     <link rel="icon" href="./images/dndfavicon.png" />
     <title>D&D 5E Dungeon Master's Guide</title>
     <link rel="stylesheet" href="/style.css" />
-    <script src="/script.js" defer></script>
+    <script src="/xscript.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,7 +27,7 @@
       <a href="/dice.html" class="menu-btn">Dice Roller</a>
       ---<br />
       <a href="/api.html" class="menu-btn">API Browser</a>
-      ---<br />
+      <a href="/endpoints.html" class="menu-btn">API Endpoints</a>
       ---<br />
       ---<br />
       <a href="https://www.dnd5eapi.co/">D&D 5E API</a>
@@ -43,47 +43,45 @@
       <h1>D&D 5E Dungeon Master's Guide</h1>
       <div class="shell-wrapper" style="text-align: left;">
         <!-- SHELL -->
-         <h1>Introduction</h1>
-          <p style="color:white;">
-            <strong>IT 'S GOOD TO BE THE DUNGEON MASTER! NOT ONLY</strong>
-            do you get to tell fantastic stories about heroes,
-            villains, monsters, and magic, but you also get
-            to create the world in which these stories live.
-            Whether you're running a D&D game already
-            or you think it 's something you want to try, this
-            book is for you.
-            The Dungeon Master's Guide assumes that you know
-            the basics of how to play the D&D tabletop roleplaying
-            game. If you haven't played before, the Dungeons & Dragons 
-            Starter Set is a great starting point for new
-            players and DMs.
-            This book has two important companions: the Player's
-            Handbook, which contains the rules your players need
-            to create characters and the rules you need to run the
-            game, and the Monster Manual, which contains ready-to-
-            use monsters to populate your D&D world.<br><br>
-            <strong>THE DUNGEON MASTER</strong><br><br>
-            The Dungeon Master (DM) is the creative force
-            behind a D&D game. The DM creates a world for the
-            other players to explore, and also creates and runs
-            adventures that drive the story. An adventure typically
-            hinges on the successful completion of a quest, and
-            can be as short as a single game session. Longer
-            adventures might embroil players in great conflicts that
-            require multiple game sessions to resolve. When strung
-            together, these adventures form an ongoing campaign.
-            A D&D campaign can include dozens of adventures and
-            last for months or years.
-          
-            </p>
-         <h1>Part 1</h1>
-         <h1>Part 2</h1>
-         <h1>Part 3</h1>
-         <h1>Appendix A: Random Dungeons</h1>
-         <h1>Appendix B: Monster Lists</h1>
-         <h1>Appendix C: Maps</h1>
-         <h1>Appendix D: Dungeon Master Inspiration</h1>
-         <h1>Index</h1>
+         <h2>Introduction</h2>
+         <h2>Part 1</h2>
+            <ul>
+              <li>Chapter 1: A World of Your Own</li>
+              <li>Chapter 2: Creating A Multiverse</li>
+            </ul>
+         <h2>Part 2</h2>
+            <ul>
+              <li>Chapter 3: Creating Adventures</li>
+              <li>Chapter 4: Creating Nonplayer Characters</li>
+              <li>Chapter 5: Adventure Environments</li>
+              <li>Chapter 6: Between Adventures</li>
+              <li>Chapter 7: Treasure</li>
+            </ul>
+         <h2>Part 3</h2>
+            <ul>
+              <li>Chapter 8: Running the Game</li>
+                <div class="api-buttons"><button data-endpoint="rule-sections">Rule Sections</button></div>
+                <div class="api-buttons"><button data-endpoint="rules">Rules</button></div>
+              <li>Chapter 9: Dungeon Master's Workshop</li>
+            </ul>
+         <h2>Appendix A: Random Dungeons</h2>
+         <h2>Appendix B: Monster Lists</h2>
+         <h2>Appendix C: Maps</h2>
+         <h2>Appendix D: Dungeon Master Inspiration</h2>
+         <h2>Index</h2>
+
+         <br>
+
+          <div class="monsters-display">
+          <div class="total-display"></div>
+          <br />
+          <div class="main-display"></div>
+          <br />
+          <div class="secondary-display"></div>
+          <br />
+          </div>
+          </div>
+
       </div>
     </main>
   </body>

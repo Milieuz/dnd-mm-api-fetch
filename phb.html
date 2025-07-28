@@ -6,7 +6,7 @@
     <link rel="icon" href="./images/dndfavicon.png" />
     <title>D&D 5E Player's Handbook</title>
     <link rel="stylesheet" href="/style.css" />
-    <script src="/script.js" defer></script>
+    <script src="/xscript.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,7 +27,7 @@
       <a href="/dice.html" class="menu-btn">Dice Roller</a>
       ---<br />
       <a href="/api.html" class="menu-btn">API Browser</a>
-      ---<br />
+      <a href="/endpoints.html" class="menu-btn">API Endpoints</a>
       ---<br />
       ---<br />
       <a href="https://www.dnd5eapi.co/">D&D 5E API</a>
@@ -41,8 +41,69 @@
     <main id="main-content">
       <img src="./images/DND Logo.png" alt="D&D Logo" /><br />
       <h1>D&D 5E Player's Handbook</h1>
-      <div class="shell-wrapper">
+      <div class="shell-wrapper" style="text-align: left;">
         <!-- SHELL -->
+          <h2>Introduction</h2>
+          <h2>Part 1</h2>
+            <ul>
+              <li>Chapter 1: Step-By-Step Characters</li>
+                <div class="api-buttons"><button data-endpoint="ability-scores">Ability Scores</button></div>
+                <div class="api-buttons"><button data-endpoint="alignments">Alignments</button></div>
+                <div class="api-buttons"><button data-endpoint="skills">Skills</button></div>
+                <div class="api-buttons"><button data-endpoint="traits">Traits</button></div>
+                
+              <li>Chapter 2: Races</li>
+                <div class="api-buttons"><button data-endpoint="races">Races</button></div>
+                <div class="api-buttons"><button data-endpoint="subraces">Subraces</button></div>
+              <li>Chapter 3: Classes</li>
+                <div class="api-buttons"><button data-endpoint="classes">Classes</button></div>
+                <div class="api-buttons"><button data-endpoint="subclasses">Subclasses</button></div>
+                <div class="api-buttons"><button data-endpoint="features">Features</button></div>
+                <div class="api-buttons"><button data-endpoint="proficiencies">Proficiencies</button></div>
+              <li>Chapter 4: Personality and Background</li>
+                <div class="api-buttons"><button data-endpoint="languages">Languages</button></div>
+              <li>Chapter 5: Equipment</li>
+                <div class="api-buttons"><button data-endpoint="equipment">Equipment</button></div>
+                <div class="api-buttons"><button data-endpoint="equipment-categories">Equipment Categories</button></div>
+                <div class="api-buttons"><button data-endpoint="magic-items">Magic Items</button></div>
+                <div class="api-buttons"><button data-endpoint="weapon-properties">Weapon Properties</button></div>
+              <li>Chapter 6: Customization Options</li>
+            </ul>
+          <h2>Part 2</h2>
+            <ul>
+              <li>Chapter 7: Using Ability Scores</li>
+              <li>Chapter 8: Adventuring</li>
+              <li>Chapter 9: Combat</li>
+                <div class="api-buttons"><button data-endpoint="conditions">Conditions</button></div>
+                <div class="api-buttons"><button data-endpoint="damage-types">Damage Types</button></div>
+            </ul>
+          <h2>Part 3</h2>
+          <ul>
+              <li>Chapter 10: Spellcasting</li>
+                <div class="api-buttons"><button data-endpoint="magic-schools">Magic Schools</button></div>
+              <li>Chapter 11: Spells</li>
+                <div class="api-buttons"><button data-endpoint="spells">Spells</button></div>
+            </ul>
+          <h2>Appendix A: Conditions</h2>
+          <h2>Appendix B: Gods of the Multiverse</h2>
+          <h2>Appendix C: The Planes of Existence</h2>
+          <h2>Appendix D: Creature Statistics</h2>
+          <h2>Appendix E: Inspirational Reading</h2>
+          <h2>Index</h2>
+          <h2>Character Sheet</h2>
+
+          <br>
+
+          <div class="monsters-display">
+          <div class="total-display"></div>
+          <br />
+          <div class="main-display"></div>
+          <br />
+          <div class="secondary-display"></div>
+          <br />
+          </div>
+          </div>
+
       </div>
     </main>
   </body>
