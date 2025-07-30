@@ -44,6 +44,21 @@
       <div class="monsters-app">
         <h1>D&D 5E Monster Manual</h1>
 
+        <!-- PDF BUTTON -->
+         <button id="togglePdfBtn" style="align-self: left;">▶ View PDF</button>
+          <div id="pdfContainer" style="display: none; margin-top: 1em;">
+            <embed src="./pdfs/5EMM.pdf" type="application/pdf" width="100%" style="height: 80vh;" />
+          </div>
+          <script>
+            const toggleBtn = document.getElementById("togglePdfBtn");
+            const pdfContainer = document.getElementById("pdfContainer");
+            toggleBtn.addEventListener("click", () => {
+              const isVisible = pdfContainer.style.display === "block";
+              pdfContainer.style.display = isVisible ? "none" : "block";
+              toggleBtn.textContent = isVisible ? "▶ View PDF" : "▼ Hide PDF";
+            });
+          </script>
+
         <p>Monster Search</p>
 
         <button class="all-monsters-btn" type="submit">

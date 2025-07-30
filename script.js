@@ -265,12 +265,12 @@ form.addEventListener("submit", (event) => {
         <hr>
 
         <div style="display: flex; justify-content: space-between; text-align: center; width: 100%; max-width: 800px; margin: 0 auto; gap: 0.5rem; flex-wrap: wrap;">
-            <div><strong>STR:</strong> ${data.strength} (${Math.floor((data.strength - 10) / 2) >= 0 ? "+" : ""}${Math.floor((data.strength - 10) / 2)})</div>
-            <div><strong>DEX:</strong> ${data.dexterity} (${Math.floor((data.dexterity - 10) / 2) >= 0 ? "+" : ""}${Math.floor((data.dexterity - 10) / 2)})</div>
-            <div><strong>CON:</strong> ${data.constitution} (${Math.floor((data.constitution - 10) / 2) >= 0 ? "+" : ""}${Math.floor((data.constitution - 10) / 2)})</div>
-            <div><strong>INT:</strong> ${data.intelligence} (${Math.floor((data.intelligence - 10) / 2) >= 0 ? "+" : ""}${Math.floor((data.intelligence - 10) / 2)})</div>
-            <div><strong>WIS:</strong> ${data.wisdom} (${Math.floor((data.wisdom - 10) / 2) >= 0 ? "+" : ""}${Math.floor((data.wisdom - 10) / 2)})</div>
-            <div><strong>CHA:</strong> ${data.charisma} (${Math.floor((data.charisma - 10) / 2) >= 0 ? "+" : ""}${Math.floor((data.charisma - 10) / 2)})</div>
+            <div><strong>STR:<br></strong> ${data.strength} (${Math.floor((data.strength - 10) / 2) >= 0 ? "+" : ""}${Math.floor((data.strength - 10) / 2)})</div>
+            <div><strong>DEX:<br></strong> ${data.dexterity} (${Math.floor((data.dexterity - 10) / 2) >= 0 ? "+" : ""}${Math.floor((data.dexterity - 10) / 2)})</div>
+            <div><strong>CON:<br></strong> ${data.constitution} (${Math.floor((data.constitution - 10) / 2) >= 0 ? "+" : ""}${Math.floor((data.constitution - 10) / 2)})</div>
+            <div><strong>INT:<br></strong> ${data.intelligence} (${Math.floor((data.intelligence - 10) / 2) >= 0 ? "+" : ""}${Math.floor((data.intelligence - 10) / 2)})</div>
+            <div><strong>WIS:<br></strong> ${data.wisdom} (${Math.floor((data.wisdom - 10) / 2) >= 0 ? "+" : ""}${Math.floor((data.wisdom - 10) / 2)})</div>
+            <div><strong>CHA:<br></strong> ${data.charisma} (${Math.floor((data.charisma - 10) / 2) >= 0 ? "+" : ""}${Math.floor((data.charisma - 10) / 2)})</div>
         </div>
         <hr>
 

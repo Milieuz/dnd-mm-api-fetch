@@ -43,6 +43,24 @@
       <h1>D&D 5E Player's Handbook</h1>
       <div class="shell-wrapper" style="text-align: left;">
         <!-- SHELL -->
+         <!-- PDF BUTTON -->
+          <div style="text-align: center;">
+            <button id="togglePdfBtn">▶ View PDF</button>
+          </div>
+
+          <div id="pdfContainer" style="display: none; margin-top: 1em;">
+            <embed src="./pdfs/5EPHB.pdf" type="application/pdf" width="100%" style="height: 80vh;" />
+          </div>
+          <script>
+            const toggleBtn = document.getElementById("togglePdfBtn");
+            const pdfContainer = document.getElementById("pdfContainer");
+            toggleBtn.addEventListener("click", () => {
+              const isVisible = pdfContainer.style.display === "block";
+              pdfContainer.style.display = isVisible ? "none" : "block";
+              toggleBtn.textContent = isVisible ? "▶ View PDF" : "▼ Hide PDF";
+            });
+          </script>
+
           <h2>Introduction</h2>
           <h2>Part 1</h2>
             <ul>

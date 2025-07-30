@@ -258,6 +258,53 @@ input {
   gap: 10px;
 }
 
+/* BUTTON STYLINGS */
+
+#togglePdfBtn,
+button[data-endpoint],
+button.gear-toggle,
+button.collapsible {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  margin: 6px 0;
+  font-size: 14px;
+  font-family: sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+button[data-endpoint]:hover,
+button.gear-toggle,
+button.collapsible:hover {
+  background-color: #555;
+}
+
+button[data-endpoint]:active,
+button.gear-toggle,
+button.collapsible:active {
+  background-color: #222;
+}
+
+button[data-endpoint]::after,
+button.gear-toggle,
+button.collapsible::after {
+  content: " ▼";
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+
+button[data-endpoint].closed::after,
+button.gear-toggle,
+button.collapsible.closed::after {
+  content: "";
+}
+
 @media screen and (max-width: 768px) {
   .side-menu {
     width: 125px;
