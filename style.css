@@ -148,30 +148,51 @@ body.menu-open #main-content {
 }
 
 .dice-selector {
-  display: grid;
-  gap: 10px;
-  max-width: 150px;
-  margin: auto;
-  text-align: left;
-}
-.dice-selector label {
-  background-color: #12181C;
-  padding: 10px;
-  border: 1px solid red;
-  border-radius: 8px;
-  text-align: center;
-}
-.dice-selector input[type="number"] {
-  width: 100px;
-  margin-left: 10px;
-  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 40px auto;
+  flex-wrap: wrap;
+  max-width: 800px;
+  padding: 0 10px; /* prevent touching screen edges */
+  transform: scale(1.1);
 }
 
-#dice-results {
-  margin-top: 10px;
-  font-size: 18px;
-  text-align: center;
+.dice-selector label {
+  background-color: #12181C;
+  padding: 10px 12px;
+  border: 1px solid red;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  color: white;
 }
+
+.dice-selector input[type="number"] {
+  width: 60px;
+  font-size: 28px;
+  background-color: black;
+  color: red;
+  border: 1px solid red;
+  border-radius: 4px;
+  text-align: right;
+}
+
+
+#dice-results {
+  background-color: #121212;
+  border: 1px solid red;
+  padding: 20px;
+  color: white;
+  font-size: 18px;
+  max-width: 800px;
+  margin: 30px auto;
+  border-radius: 6px;
+  white-space: pre-wrap;
+}
+
 
 .grid-container {
   display: grid;
