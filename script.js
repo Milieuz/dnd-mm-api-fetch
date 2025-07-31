@@ -511,7 +511,7 @@ function rollDungeonDice() {
     "Forward",
     "Backward",
     "Up",
-    "Dpwn",
+    "Down",
 
     // Vertical directions
     "Upward Stairs",
