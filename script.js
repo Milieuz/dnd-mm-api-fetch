@@ -501,6 +501,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // ---- End script.js ----
 
+// ======================================= BEGIN DUNGEON DICE =======================================
+
 function rollDungeonDice() {
   const directionOptions = [
     // Basic cardinal movement
@@ -508,6 +510,8 @@ function rollDungeonDice() {
     "Right",
     "Forward",
     "Backward",
+    "Up",
+    "Dpwn",
 
     // Vertical directions
     "Upward Stairs",
@@ -831,110 +835,110 @@ function rollDungeonDice() {
     "Carved Bone Figurine",
   ];
 
-const terrainOptions = [
-  // Plains & Fields
-  "Grassland",
-  "Savanna",
-  "Rolling Hills",
-  "Farmland",
-  "Meadow",
-  "Steppe",
+  const terrainOptions = [
+    // Plains & Fields
+    "Grassland",
+    "Savanna",
+    "Rolling Hills",
+    "Farmland",
+    "Meadow",
+    "Steppe",
 
-  // Mountains & Highlands
-  "Mountain",
-  "Highlands",
-  "Foothills",
-  "Craggy Peak",
-  "Rocky Cliff",
-  "Snow-Capped Summit",
+    // Mountains & Highlands
+    "Mountain",
+    "Highlands",
+    "Foothills",
+    "Craggy Peak",
+    "Rocky Cliff",
+    "Snow-Capped Summit",
 
-  // Valleys & Lowlands
-  "Valley",
-  "Canyon",
-  "Gorge",
-  "Ravine",
-  "Floodplain",
-  "Basalt Basin",
+    // Valleys & Lowlands
+    "Valley",
+    "Canyon",
+    "Gorge",
+    "Ravine",
+    "Floodplain",
+    "Basalt Basin",
 
-  // Forests
-  "Temperate Forest",
-  "Rainforest",
-  "Pine Woods",
-  "Old-Growth Forest",
-  "Haunted Forest",
-  "Mushroom Grove",
-  "Bamboo Thicket",
+    // Forests
+    "Temperate Forest",
+    "Rainforest",
+    "Pine Woods",
+    "Old-Growth Forest",
+    "Haunted Forest",
+    "Mushroom Grove",
+    "Bamboo Thicket",
 
-  // Wetlands
-  "Swamp",
-  "Bog",
-  "Marsh",
-  "Fen",
-  "Quagmire",
-  "Mangrove Delta",
+    // Wetlands
+    "Swamp",
+    "Bog",
+    "Marsh",
+    "Fen",
+    "Quagmire",
+    "Mangrove Delta",
 
-  // Deserts
-  "Desert",
-  "Dune Field",
-  "Salt Flat",
-  "Wadi (Dry Riverbed)",
-  "Oasis",
-  "Glass Waste",
+    // Deserts
+    "Desert",
+    "Dune Field",
+    "Salt Flat",
+    "Wadi (Dry Riverbed)",
+    "Oasis",
+    "Glass Waste",
 
-  // Arctic & Tundra
-  "Tundra",
-  "Glacier",
-  "Frozen Lake",
-  "Permafrost Plain",
-  "Icy Ridge",
-  "Snowfield",
+    // Arctic & Tundra
+    "Tundra",
+    "Glacier",
+    "Frozen Lake",
+    "Permafrost Plain",
+    "Icy Ridge",
+    "Snowfield",
 
-  // Aquatic
-  "Riverbank",
-  "Coastal Shore",
-  "Ocean Reef",
-  "Lakebed",
-  "Underwater Trench",
-  "Coral Forest",
-  "Isle or Atoll",
+    // Aquatic
+    "Riverbank",
+    "Coastal Shore",
+    "Ocean Reef",
+    "Lakebed",
+    "Underwater Trench",
+    "Coral Forest",
+    "Isle or Atoll",
 
-  // Underground & Subterranean
-  "Cave",
-  "Cavern System",
-  "Underdark",
-  "Crystal Tunnel",
-  "Lava Tube",
-  "Abandoned Mine",
-  "Fungal Cavern",
+    // Underground & Subterranean
+    "Cave",
+    "Cavern System",
+    "Underdark",
+    "Crystal Tunnel",
+    "Lava Tube",
+    "Abandoned Mine",
+    "Fungal Cavern",
 
-  // Urban & Civilized
-  "City Streets",
-  "Village Square",
-  "Castle Courtyard",
-  "Ruined City",
-  "Sewer System",
-  "Market Bazaar",
-  "Temple Grounds",
+    // Urban & Civilized
+    "City Streets",
+    "Village Square",
+    "Castle Courtyard",
+    "Ruined City",
+    "Sewer System",
+    "Market Bazaar",
+    "Temple Grounds",
 
-  // Magical or Anomalous Terrain
-  "Shadowfell Blight",
-  "Feywild Grove",
-  "Planar Rift Zone",
-  "Wild Magic Field",
-  "Arcane Wastes",
-  "Floating Islands",
-  "Time-Lost Ruins",
-  "Dreamscape Field",
+    // Magical or Anomalous Terrain
+    "Shadowfell Blight",
+    "Feywild Grove",
+    "Planar Rift Zone",
+    "Wild Magic Field",
+    "Arcane Wastes",
+    "Floating Islands",
+    "Time-Lost Ruins",
+    "Dreamscape Field",
 
-  // Otherworldly/Extraplanar
-  "Infernal Wasteland",
-  "Celestial Plateau",
-  "Elemental Fire Plain",
-  "Elemental Water Expanse",
-  "Elemental Earth Labyrinth",
-  "Astral Void",
-  "Ethereal Borderlands"
-];
+    // Otherworldly/Extraplanar
+    "Infernal Wasteland",
+    "Celestial Plateau",
+    "Elemental Fire Plain",
+    "Elemental Water Expanse",
+    "Elemental Earth Labyrinth",
+    "Astral Void",
+    "Ethereal Borderlands",
+  ];
 
   const weatherOptions = [
     // Mundane weather
@@ -998,3 +1002,1141 @@ const terrainOptions = [
   document.getElementById("weather-die-result").textContent =
     weatherOptions[Math.floor(Math.random() * weatherOptions.length)];
 }
+// END DUNGEON DICE
+
+// ======================================= BEGIN HIT DICE =======================================
+
+function rollHitDice() {
+  const bodypartOptions = [
+    // Head & Face
+    "Head",
+    "Skull",
+    "Scalp",
+    "Face",
+    "Forehead",
+    "Eyes",
+    "Ears",
+    "Nose",
+    "Mouth",
+    "Teeth",
+    "Jaw",
+    "Chin",
+    "Tongue",
+    "Throat",
+    "Neck",
+    "Hair",
+
+    // Torso
+    "Chest",
+    "Ribs",
+    "Back",
+    "Shoulders",
+    "Spine",
+    "Abdomen",
+    "Stomach",
+    "Waist",
+    "Hips",
+    "Pelvis",
+    "Groin",
+
+    // Arms
+    "Arm",
+    "Upper Arm",
+    "Lower Arm",
+    "Elbow",
+    "Forearm",
+    "Wrist",
+    "Hand",
+    "Palm",
+    "Fingers",
+    "Thumb",
+    "Knuckles",
+
+    // Legs
+    "Leg",
+    "Thigh",
+    "Knee",
+    "Shin",
+    "Calf",
+    "Ankle",
+    "Foot",
+    "Heel",
+    "Toes",
+
+    // Internal Organs
+    "Brain",
+    "Heart",
+    "Lungs",
+    "Liver",
+    "Kidneys",
+    "Stomach (Organ)",
+    "Intestines",
+    "Bladder",
+    "Pancreas",
+    "Spleen",
+    "Gallbladder",
+
+    // Miscellaneous/Other
+    "Skin",
+    "Bones",
+    "Muscles",
+    "Blood",
+    "Nerves",
+    "Veins",
+    "Arteries",
+    "Joints",
+  ];
+
+  const slashingOptions = [
+    "Gouge",
+    "Cleave",
+    "Slash",
+    "Hack",
+    "Slice",
+    "Lacerate",
+    "Sever",
+    "Chop",
+    "Scythe",
+    "Tear",
+    "Carve",
+    "Rip",
+    "Flay",
+    "Split",
+    "Sunder",
+    "Rend",
+    "Bisect",
+    "Score",
+    "Notch",
+    "Gash",
+    "Maul",
+    "Whittle",
+  ];
+
+  const bluntOptions = [
+    "Smash",
+    "Knock",
+    "Bash",
+    "Crush",
+    "Bludgeon",
+    "Pummel",
+    "Slam",
+    "Pound",
+    "Thump",
+    "Clobber",
+    "Wallop",
+    "Strike",
+    "Club",
+    "Slug",
+    "Whack",
+    "Blow",
+    "Crack",
+    "Dent",
+    "Bruise",
+    "Stagger",
+    "Rattle",
+    "Concuss",
+    "Flatten",
+    "Pulverize",
+    "Impact",
+    "Ram",
+    "Batter",
+    "Jolt",
+    "Thwack",
+    "Thunk",
+  ];
+
+  const piercingOptions = [
+    "Stab",
+    "Pierce",
+    "Impale",
+    "Skewer",
+    "Puncture",
+    "Perforate",
+    "Lance",
+    "Jab",
+    "Thrust",
+    "Gore",
+    "Stick",
+    "Pin",
+    "Bore",
+    "Drill",
+    "Inject",
+    "Harpoon",
+    "Drive",
+    "Embed",
+    "Spearfish",
+    "Bayonet",
+    "Punch-through",
+    "Run-through",
+    "Spindle",
+    "Transfix",
+    "Snag",
+    "Stake",
+    "Dart",
+    "Nail",
+    "Spear",
+    "Tine",
+    "Split",
+  ];
+
+  const effectOptions = [
+    // Standard Conditions (from D&D 5E)
+    "Blinded",
+    "Charmed",
+    "Deafened",
+    "Exhausted",
+    "Frightened",
+    "Grappled",
+    "Incapacitated",
+    "Invisible",
+    "Paralyzed",
+    "Petrified",
+    "Poisoned",
+    "Prone",
+    "Restrained",
+    "Stunned",
+    "Unconscious",
+
+    // Additional Homebrew or Descriptive Effects
+    "Bleeding",
+    "Immobilized",
+    "Burning",
+    "Frozen",
+    "Shocked",
+    "Weakened",
+    "Cursed",
+    "Silenced",
+    "Diseased",
+    "Slowed",
+    "Confused",
+    "Disarmed",
+    "Dazed",
+    "Knocked Back",
+    "Knocked Down",
+    "Blasted",
+    "Sapped",
+    "Hexed",
+    "Crippled",
+    "Suffocating",
+    "Hallucinating",
+    "Panicked",
+    "Disoriented",
+    "Levitating",
+    "Entangled",
+    "Infected",
+    "Marked",
+    "Mind-Controlled",
+    "Sundered",
+    "Tormented",
+    "Terrified",
+  ];
+
+  const fumbleOptions = [
+    // General incompetence or clumsiness
+    "Klutz",
+    "Inept",
+    "Dazed",
+    "Slip",
+    "Trip",
+    "Fall Flat",
+    "Drop Weapon",
+    "Lose Grip",
+    "Stumble",
+    "Overreach",
+    "Misfire",
+    "Fumble",
+    "Misjudge Distance",
+    "Overbalance",
+    "Twist Ankle",
+
+    // Self-inflicted injury or harm
+    "Self-Stab",
+    "Self-Slash",
+    "Hit Self",
+    "Punch Wall",
+    "Break Weapon",
+    "Ricochet Shot",
+    "Blind Self",
+    "Bite Tongue",
+    "Knock Self Out",
+    "Headbutt Ally",
+    "Trip Over Ally",
+    "Dislocate Joint",
+    "Strain Muscle",
+    "Drop Shield",
+    "Cut Hand",
+    "Trigger Trap",
+    "Swallow Component",
+    "Fall on Weapon",
+
+    // Magical or ranged mishaps
+    "Spell Backfire",
+    "Wild Magic Surge",
+    "Lose Concentration",
+    "Summon Wrong Target",
+    "Shoot Ally",
+    "Arrow to Foot",
+    "Explode in Face",
+    "Burn Self",
+    "Freeze Fingers",
+    "Blind by Flash",
+    "Charm Self",
+    "Silence Self",
+
+    // Comedic/roleplay mishaps
+    "Pants Fall Down",
+    "Trip on Cloak",
+    "Sneezes Loudly",
+    "Knocks Over Lantern",
+    "Yells Wrong Command",
+    "Drops Spell Components",
+    "Insults Ally by Mistake",
+    "Forgets What They're Doing",
+  ];
+
+  const armorhitOptions = [
+    // Physical damage effects
+    "Splintered",
+    "Cleaved",
+    "Ripped",
+    "Dented",
+    "Cracked",
+    "Chipped",
+    "Shattered",
+    "Gashed",
+    "Slashed",
+    "Punctured",
+    "Pierced",
+    "Shredded",
+    "Scored",
+    "Crushed",
+    "Fractured",
+    "Crimped",
+    "Warped",
+    "Bent",
+    "Broken Strap",
+    "Loose Buckle",
+
+    // Elemental/magical effects
+    "Melted",
+    "Burned",
+    "Charred",
+    "Frozen",
+    "Brittled",
+    "Electrocuted",
+    "Corroded",
+    "Rusting",
+    "Disintegrated",
+    "Sapped of Magic",
+    "Phased",
+    "Eroded",
+    "Enflamed",
+    "Acid-Etched",
+    "Slick with Ice",
+    "Magnetized",
+    "Cursed Tear",
+
+    // Environmental/usage wear
+    "Frayed",
+    "Torn",
+    "Worn Thin",
+    "Weathered",
+    "Waterlogged",
+    "Soaked",
+    "Stained",
+    "Caked with Mud",
+    "Oil-Slicked",
+    "Dust-Choked",
+    "Fungal Growth",
+    "Ivy-Wrapped",
+
+    // Utility-specific failures
+    "Latch Snapped",
+    "Seam Split",
+    "Joint Jammed",
+    "Strap Torn Loose",
+    "Padding Exposed",
+    "Lens Cracked",
+    "Inscriptions Faded",
+    "Insulation Peeled",
+  ];
+
+  const psychOptions = [
+    "Shaken", 
+    "Bloodthirsty", 
+    "Panicked", 
+    "Confident Surge", 
+    "Distracted",
+
+    // Fear / Panic / Trauma
+    "Frightened",
+    "Hysterical",
+    "Paranoid",
+    "Shell-Shocked",
+    "Delirious",
+    "Flashbacks",
+    "Terrified",
+    "Screaming Fit",
+    "Catatonic",
+    "Trembling",
+    "Avoidant",
+
+    // Anger / Rage States
+    "Berserk",
+    "Enraged",
+    "Seething",
+    "Murderous",
+    "Uncontrollable Fury",
+    "Wrathful Outburst",
+
+    // Confusion / Disorientation
+    "Confused",
+    "Hallucinating",
+    "Dazed",
+    "Memory Loss",
+    "Disoriented",
+    "Amnesiac",
+    "Wandering Thoughts",
+    "Echolalia",
+
+    // Magical Madness / Curses
+    "Voices in Head",
+    "Obsessed",
+    "Possessed",
+    "Haunted",
+    "Cursed Guilt",
+    "Compelled",
+    "Mind Controlled",
+    "Deluded",
+    "Arcane Haze",
+    "Dreambound",
+
+    // Depression / Hopelessness
+    "Melancholic",
+    "Apathetic",
+    "Despairing",
+    "Empty",
+    "Withdrawn",
+    "Self-Loathing",
+    "Lost Hope",
+
+    // Mania / Euphoria
+    "Overconfident",
+    "Delusional Bravado",
+    "Grandiose",
+    "Euphoric",
+    "Laughing Fit",
+    "Unstable High",
+
+    // Fixation / Obsession
+    "Fixated",
+    "Repetitive Behavior",
+    "Paralyzed by Choice",
+    "Compulsively Counting",
+    "Overplanning",
+    "Phobic Reaction",
+
+    // Miscellaneous
+    "Sleep-Deprived",
+    "Split Personality",
+    "Trust Issues",
+    "Emotional Numbness",
+    "Impulse Control Loss",
+    "Fear of Magic",
+    "Mistrust of Allies"
+  ];
+
+
+  document.getElementById("bodypart-die-result").textContent =
+    bodypartOptions[Math.floor(Math.random() * bodypartOptions.length)];
+  document.getElementById("slashing-die-result").textContent =
+    slashingOptions[Math.floor(Math.random() * slashingOptions.length)];
+  document.getElementById("blunt-die-result").textContent =
+    bluntOptions[Math.floor(Math.random() * bluntOptions.length)];
+  document.getElementById("piercing-die-result").textContent =
+    piercingOptions[Math.floor(Math.random() * piercingOptions.length)];
+  document.getElementById("effect-die-result").textContent =
+    effectOptions[Math.floor(Math.random() * effectOptions.length)];
+  document.getElementById("fumble-die-result").textContent =
+    fumbleOptions[Math.floor(Math.random() * fumbleOptions.length)];
+  document.getElementById("armorhit-die-result").textContent =
+    armorhitOptions[Math.floor(Math.random() * armorhitOptions.length)];
+  document.getElementById("psych-die-result").textContent =
+    psychOptions[Math.floor(Math.random() * psychOptions.length)];
+}
+
+// END HIT DICE
+
+// ======================================= BEGIN NPC DICE =======================================
+
+
+
+function rollNPCDice() {
+
+  const raceOptions = [
+  "Human",
+  "Variant Human",
+  "Dwarf",
+  "Hill Dwarf",
+  "Mountain Dwarf",
+  "Elf",
+  "High Elf",
+  "Wood Elf",
+  "Drow",
+  "Halfling",
+  "Lightfoot Halfling",
+  "Stout Halfling",
+  "Dragonborn",
+  "Gnome",
+  "Forest Gnome",
+  "Rock Gnome",
+  "Half-Elf",
+  "Half-Orc",
+  "Tiefling",
+  ];
+
+  const classOptions = [
+    // Barbarian
+    "Barbarian",
+    "Barbarian - Path of the Berserker",
+    "Barbarian - Path of the Totem Warrior",
+
+    // Bard
+    "Bard",
+    "Bard - College of Lore",
+    "Bard - College of Valor",
+
+    // Cleric
+    "Cleric",
+    "Cleric - Knowledge Domain",
+    "Cleric - Life Domain",
+    "Cleric - Light Domain",
+    "Cleric - Nature Domain",
+    "Cleric - Tempest Domain",
+    "Cleric - Trickery Domain",
+    "Cleric - War Domain",
+
+    // Druid
+    "Druid",
+    "Druid - Circle of the Land",
+    "Druid - Circle of the Moon",
+
+    // Fighter
+    "Fighter",
+    "Fighter - Champion",
+    "Fighter - Battle Master",
+    "Fighter - Eldritch Knight",
+
+    // Monk
+    "Monk",
+    "Monk - Way of the Open Hand",
+    "Monk - Way of Shadow",
+    "Monk - Way of the Four Elements",
+
+    // Paladin
+    "Paladin",
+    "Paladin - Oath of Devotion",
+    "Paladin - Oath of the Ancients",
+    "Paladin - Oath of Vengeance",
+
+    // Ranger
+    "Ranger",
+    "Ranger - Hunter",
+    "Ranger - Beast Master",
+
+    // Rogue
+    "Rogue",
+    "Rogue - Thief",
+    "Rogue - Assassin",
+    "Rogue - Arcane Trickster",
+
+    // Sorcerer
+    "Sorcerer",
+    "Sorcerer - Draconic Bloodline",
+    "Sorcerer - Wild Magic",
+
+    // Warlock
+    "Warlock",
+    "Warlock - The Archfey",
+    "Warlock - The Fiend",
+    "Warlock - The Great Old One",
+
+    // Wizard
+    "Wizard",
+    "Wizard - School of Abjuration",
+    "Wizard - School of Conjuration",
+    "Wizard - School of Divination",
+    "Wizard - School of Enchantment",
+    "Wizard - School of Evocation",
+    "Wizard - School of Illusion",
+    "Wizard - School of Necromancy",
+    "Wizard - School of Transmutation"
+  ];
+
+
+  const genderOptions = [
+    "Male",
+    "Female",
+    "Non-Binary",
+    "Uncertain"
+  ];
+
+
+  const heightOptions = [
+    "Very Short",
+    "Short",
+    "Below Average",
+    "Average Height",
+    "Above Average",
+    "Tall",
+    "Very Tall",
+    "Towering",
+    "Diminutive",
+    "Knee-High",
+    "Waist-High",
+    "Head and Shoulders Above",
+    "Compact",
+    "Stocky",
+    "Lanky",
+    "Stretched",
+    "Massive",
+    "Petite",
+    "Stout",
+    "Gigantic",
+    "Colossal"
+  ];
+
+  const weightOptions = [
+    "Emaciated",
+    "Very Thin",
+    "Thin",
+    "Slender",
+    "Lean",
+    "Trim",
+    "Average Build",
+    "Stocky",
+    "Muscular",
+    "Broad",
+    "Heavyset",
+    "Thick",
+    "Bulky",
+    "Chubby",
+    "Plump",
+    "Overweight",
+    "Fat",
+    "Rotund",
+    "Obese",
+    "Massive",
+    "Hulking"
+  ];
+
+  const ageOptions = [
+    "Infant",
+    "Toddler",
+    "Child",
+    "Adolescent",
+    "Young Adult",
+    "Adult",
+    "Middle-Aged",
+    "Elderly",
+    "Old",
+    "Ancient",
+    "Venerable",
+    "Ageless",
+    "Timeless",
+    "Youthful",
+    "Seasoned",
+    "Prime of Life",
+    "Over the Hill",
+    "Crone / Sage-Like"
+  ];
+
+  const hairOptions = [
+    // Natural Hair Colors
+    "Black",
+    "Dark Brown",
+    "Brown",
+    "Light Brown",
+    "Auburn",
+    "Chestnut",
+    "Red",
+    "Strawberry Blonde",
+    "Blonde",
+    "Platinum Blonde",
+    "Dirty Blonde",
+    "Gray",
+    "Silver",
+    "White",
+
+    // Bright / Dyed / Vibrant Colors
+    "Blue",
+    "Light Blue",
+    "Green",
+    "Emerald Green",
+    "Teal",
+    "Pink",
+    "Hot Pink",
+    "Purple",
+    "Lavender",
+    "Violet",
+    "Turquoise",
+    "Orange",
+    "Magenta",
+    "Cyan",
+    "Neon Yellow",
+
+    // Fantasy / Magical / Elemental
+    "Glowing White",
+    "Fiery Red",
+    "Iridescent",
+    "Rainbow",
+    "Starlight Silver",
+    "Shadow Black",
+    "Frost Blue",
+    "Golden Flame",
+    "Crystalline",
+    "Mossy Green",
+    "Void Purple",
+    "Ashen Gray",
+    "Copper",
+    "Bronze",
+    "Steel",
+    "Obsidian",
+    "Translucent"
+  ];
+
+  const eyeOptions = [
+    // Natural Human Eye Colors
+    "Black",
+    "Dark Brown",
+    "Brown",
+    "Hazel",
+    "Amber",
+    "Green",
+    "Blue",
+    "Gray",
+
+    // Rare / Unusual Realistic Shades
+    "Light Gray",
+    "Steel Blue",
+    "Golden Brown",
+    "Ice Blue",
+    "Olive Green",
+
+    // Bright / Vibrant / Dyed (Fantasy-Appropriate)
+    "Violet",
+    "Crimson",
+    "Turquoise",
+    "Emerald",
+    "Sapphire",
+    "Ruby",
+    "Aquamarine",
+    "Indigo",
+    "Teal",
+
+    // Magical / Fantasy-Only
+    "Glowing White",
+    "Glowing Red",
+    "Glowing Blue",
+    "Glowing Green",
+    "Silver",
+    "Gold",
+    "Bronze",
+    "Opalescent",
+    "Multicolored Swirl",
+    "Changing with Emotion",
+    "Starlit",
+    "Void Black",
+    "Firelit",
+    "Crystalline",
+    "No Pupils",
+    "Catlike",
+    "Draconic Slit",
+    "Mirror-like",
+    "Completely White",
+    "Nebula Patterned",
+    "Clockwork Gear Pattern"
+  ];
+
+
+  const occupationOptions = [
+    // Crafting & Trades
+    "Blacksmith",
+    "Fletcher",
+    "Armorer",
+    "Weaponsmith",
+    "Bowyer",
+    "Tanner",
+    "Cobbler",
+    "Carpenter",
+    "Mason",
+    "Tailor",
+    "Weaver",
+    "Potter",
+    "Cooper",
+    "Chandler (Candle Maker)",
+    "Glassblower",
+    "Jeweler",
+    "Engraver",
+    "Cartwright",
+    "Shipwright",
+
+    // Agriculture & Rural
+    "Farmer",
+    "Shepherd",
+    "Hunter",
+    "Fisherman",
+    "Beekeeper",
+    "Herbalist",
+    "Gardener",
+    "Stablehand",
+    "Animal Breeder",
+
+    // Services & Labor
+    "Innkeeper",
+    "Cook",
+    "Servant",
+    "Baker",
+    "Butcher",
+    "Tavern Keeper",
+    "Miller",
+    "Brewmaster",
+    "Miner",
+    "Woodcutter",
+    "Gravedigger",
+    "Chamberlain",
+    "Scribe",
+
+    // Merchants & Trade
+    "Merchant",
+    "Trader",
+    "Spice Dealer",
+    "Apothecary",
+    "Alchemist",
+    "Moneylender",
+    "Shopkeeper",
+    "Peddler",
+    "Barkeep",
+
+    // Military & Defense
+    "Guard",
+    "Soldier",
+    "Knight",
+    "Squire",
+    "Mercenary",
+    "Bounty Hunter",
+    "Watchman",
+    "Archer",
+    "Captain of the Guard",
+
+    // Magic & Knowledge
+    "Wizard",
+    "Sorcerer",
+    "Warlock",
+    "Alchemist",
+    "Enchanter",
+    "Sage",
+    "Librarian",
+    "Scholar",
+    "Diviner",
+    "Astrologer",
+
+    // Religion & Spirituality
+    "Cleric",
+    "Priest",
+    "Paladin",
+    "Acolyte",
+    "Monk",
+    "Exorcist",
+    "Cultist",
+    "Hermit",
+    "Oracle",
+
+    // Nobility & Governance
+    "King",
+    "Queen",
+    "Lord",
+    "Lady",
+    "Duke",
+    "Baron",
+    "Mayor",
+    "Steward",
+    "Advisor",
+    "Tax Collector",
+
+    // Criminal / Shady
+    "Thief",
+    "Pickpocket",
+    "Assassin",
+    "Smuggler",
+    "Spy",
+    "Con Artist",
+    "Fence",
+    "Grave Robber",
+    "Cult Leader",
+
+    // Performers & Artists
+    "Bard",
+    "Minstrel",
+    "Poet",
+    "Storyteller",
+    "Dancer",
+    "Actor",
+    "Painter",
+    "Sculptor",
+    "Calligrapher",
+    "Acrobat",
+    "Fire-Eater",
+
+    // Travel & Wilderness
+    "Explorer",
+    "Tracker",
+    "Ranger",
+    "Nomad",
+    "Sailor",
+    "Navigator",
+    "Caravan Guard",
+    "Guide",
+    "Beast Tamer",
+    "Monster Hunter"
+  ];
+
+  const alignmentOptions = [
+    "Lawful Good",
+    "Neutral Good",
+    "Chaotic Good",
+    "Lawful Neutral",
+    "True Neutral",
+    "Chaotic Neutral",
+    "Lawful Evil",
+    "Neutral Evil",
+    "Chaotic Evil"
+  ];
+
+  const clothingOptions = [
+    // Commoner & Peasant Outfits
+    "Peasant's Work Clothes",
+    "Tattered Farmhand Garb",
+    "Simple Woolen Robes",
+    "Roughspun Tunic and Breeches",
+    "Patchwork Traveler's Outfit",
+    "Field Laborer’s Rags",
+    "Village Maiden’s Dress and Apron",
+
+    // Artisan & Merchant Outfits
+    "Craftsman's Leather Apron and Tunic",
+    "Merchant’s Layered Robes",
+    "Guildsman's Doublet and Trousers",
+    "Innkeeper's Clean Linen and Waistcoat",
+    "Tradeswoman’s Modest Working Dress",
+
+    // Adventurer Outfits
+    "Explorer’s Rugged Outfit with Cloak and Boots",
+    "Ranger’s Camouflaged Leathers",
+    "Wanderer's Travel Gear",
+    "Scout's Hooded Garb with Utility Belt",
+    "Dungeon Delver’s Outfit with Reinforced Padding",
+    "Desert Nomad’s Loose Wraps and Headscarf",
+    "Cold-Weather Gear with Fur Cloak and Gloves",
+
+    // Noble & Upper-Class Outfits
+    "Nobleman's Embroidered Tunic and Velvet Cape",
+    "Lady's Gilded Gown with Silken Sash",
+    "Courtier’s Ruffled Attire with Jewels",
+    "Royal Advisor’s Robes with Brocade Trim",
+    "Evening Banquet Finery",
+    "Ceremonial Outfit with Fur Lining and Insignia",
+
+    // Religious & Arcane Outfits
+    "Cleric's Vestments with Holy Symbol",
+    "Acolyte’s Modest Robes",
+    "Priest’s Flowing Gown and Embroidered Stole",
+    "Wizard’s Enchanted Robe with Arcane Sigils",
+    "Druid's Earth-Toned Robes with Vines and Feathers",
+    "Warlock's Shadowy Ensemble with Ornate Trim",
+
+    // Cultural & Race-Based Outfits
+    "Elven Silken Outfit with Leaf Motifs",
+    "Dwarven Forgewear with Metal Accents",
+    "Orcish War-Kilt and Hide Vest",
+    "Halfling Patchcoat with Colorful Buttons",
+    "Tiefling Ceremonial Suit with Infernal Embroidery",
+    "Tabaxi Nomad's Wraps with Tribal Markings",
+    "Dragonborn Regal Attire with Scaled Patterns",
+    "Merfolk Festival Garments of Coral and Shell",
+
+    // Theatrical & Exotic Outfits
+    "Minstrel’s Colorful Performance Attire",
+    "Masked Carnival Costume",
+    "Fire Dancer’s Sashes and Bells",
+    "Mystic Fortune Teller’s Flowing Skirts and Shawls"
+  ];
+
+const equipmentOptions = [
+  // Survival & Exploration
+  "Bedroll, Flint-and-Steel, Waterskin",
+  "Hiking Boots, Trail Rations, Travel Cloak",
+  "Tent, Rope, Hammer",
+  "Compass, Travel Journal, Quill",
+  "Lantern, Oil Flask, Tinderbox",
+
+  // Tools & Crafting
+  "Smithing Hammer, Tongs, Whetstone",
+  "Carpenter’s Saw, Nails, Measuring String",
+  "Tinker’s Tools, Gears, Magnifying Glass",
+  "Herbal Pouch, Mortar-and-Pestle, Vials",
+  "Chisel, Mallet, Chalk",
+
+  // Wilderness & Hunting
+  "Hunting Bow, Quiver of Arrows, Skinning Knife",
+  "Bear Trap, Rope, Camouflage Net",
+  "Fishing Pole, Tackle Box, Hooks",
+  "Snares, Trail Markers, Jerky Pack",
+  "Survival Manual, Hatchet, Firestarter Kit",
+
+  // Arcane & Religious
+  "Spellbook, Ink Feather, Quill",
+  "Scroll Case, Arcane Focus, Chalk Circle",
+  "Holy Symbol, Prayer Beads, Censer",
+  "Vial of Sacred Water, Ritual Dagger, Tapestry Cloth",
+  "Crystal Orb, Incense Bundle, Star Chart",
+
+  // Stealth & Subterfuge
+  "Lockpicks, Dark Cloak, Quiet Boots",
+  "Spyglass, Map, Compass",
+  "Thieves' Tools, Grappling Hook, Hooded Lantern",
+  "Poison Vial, Hollow Ring, Disguise Kit",
+  "Smoke Bomb, Blindfold, Whisper Mask",
+
+  // Nautical
+  "Rope, Hook, Driftwood Plank",
+  "Sextant, Navigational Charts, Signal Flags",
+  "Tar Bucket, Patch Kit, Spare Oar",
+  "Fishing Net, Iron Rations, Seaglass Pendant",
+
+  // Scholar & Merchant
+  "Ledger, Inkpot, Abacus",
+  "Scroll Case, Translation Tome, Inkstick",
+  "Merchant’s Scales, Sample Goods, Ledger",
+  "Sealing Wax, Signet Ring, Parchment",
+
+  // Performer & Artisan
+  "Lute, Spare Strings, Rosin Cloth",
+  "Juggling Balls, Mask, Face Paint",
+  "Paintbrush, Canvas, Pigments",
+  "Dancer’s Veils, Finger Cymbals, Anklet Bells",
+  "Poetry Book, Feather Pen, Rose Petals",
+
+  // Military & Guard
+  "Shortsword, Shield, Gambeson",
+  "Helmet, Greaves, Sword Oil",
+  "Torch, Whistle, Patrol Badge",
+  "Manacles, Baton, Hood",
+
+  // Misc / Personal
+  "Coin Pouch, Lucky Charm, Lock of Hair",
+  "Mirror, Comb, Perfume Vial",
+  "Dice Set, Playing Cards, Drinking Flask",
+  "Keepsake Locket, Diary, Small Key"
+];
+
+
+
+  const weaponOptions = [
+    // Simple Melee Weapons
+    "Club",
+    "Dagger",
+    "Greatclub",
+    "Handaxe",
+    "Javelin",
+    "Light Hammer",
+    "Mace",
+    "Quarterstaff",
+    "Sickle",
+    "Spear",
+
+    // Simple Ranged Weapons
+    "Crossbow, Light",
+    "Dart",
+    "Shortbow",
+    "Sling",
+
+    // Martial Melee Weapons
+    "Battleaxe",
+    "Flail",
+    "Glaive",
+    "Greataxe",
+    "Greatsword",
+    "Halberd",
+    "Lance",
+    "Longsword",
+    "Maul",
+    "Morningstar",
+    "Pike",
+    "Rapier",
+    "Scimitar",
+    "Shortsword",
+    "Trident",
+    "War Pick",
+    "Warhammer",
+    "Whip",
+
+    // Martial Ranged Weapons
+    "Blowgun",
+    "Crossbow, Hand",
+    "Crossbow, Heavy",
+    "Longbow",
+    "Net",
+
+    // Common Magical or Thematic Weapons (generic forms)
+    "Flaming Sword",
+    "Frost Dagger",
+    "Thunder Hammer",
+    "Staff of Fire",
+    "Wand of Magic Missiles",
+    "Wand of the War Mage",
+    "Enchanted Longbow",
+    "Vorpal Blade",
+    "Dancing Sword",
+    "Vicious Weapon",
+    "Sword of Wounding",
+    "Moon-Touched Sword",
+    "Boomerang of Returning",
+    "Staff of the Woodlands",
+    "Sun Blade",
+    "Hexblade Weapon",
+    "Pact Weapon",
+    "Soulbound Spear"
+  ];
+
+
+  document.getElementById("race-die-result").textContent =
+    raceOptions[Math.floor(Math.random() * raceOptions.length)];
+  document.getElementById("class-die-result").textContent =
+    classOptions[Math.floor(Math.random() * classOptions.length)];
+  document.getElementById("gender-die-result").textContent =
+    genderOptions[Math.floor(Math.random() * genderOptions.length)];
+  document.getElementById("height-die-result").textContent =
+    heightOptions[Math.floor(Math.random() * heightOptions.length)];
+  document.getElementById("weight-die-result").textContent =
+    weightOptions[Math.floor(Math.random() * weightOptions.length)];
+  document.getElementById("age-die-result").textContent =
+    ageOptions[Math.floor(Math.random() * ageOptions.length)];
+  document.getElementById("hair-die-result").textContent =
+    hairOptions[Math.floor(Math.random() * hairOptions.length)];
+  document.getElementById("eye-die-result").textContent =
+    eyeOptions[Math.floor(Math.random() * eyeOptions.length)];
+  document.getElementById("occupation-die-result").textContent =
+    occupationOptions[Math.floor(Math.random() * occupationOptions.length)];
+  document.getElementById("alignment-die-result").textContent =
+    alignmentOptions[Math.floor(Math.random() * alignmentOptions.length)];
+  document.getElementById("clothing-die-result").textContent =
+    clothingOptions[Math.floor(Math.random() * clothingOptions.length)];
+  document.getElementById("equipment-die-result").textContent =
+    equipmentOptions[Math.floor(Math.random() * equipmentOptions.length)];
+  document.getElementById("weapon-die-result").textContent =
+    weaponOptions[Math.floor(Math.random() * weaponOptions.length)];
+}
+
+
+// END NPC DICE

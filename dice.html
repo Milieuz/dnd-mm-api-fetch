@@ -69,17 +69,52 @@
 
       <div id="dice-results" class="monsters-display"></div>
       <br>
-        <h2>Dungeon Dice</h2>
+        <h2>'Dungeon Dice'</h2>
         <div class="dice-selector">
           <div class="column">
             <button type="button" class="all-monsters-btn" onclick="rollDungeonDice()">Roll All Dungeon Dice</button><br><br>
-            <label><strong>Directions:</strong> <span id="direction-die-result">-</span></label><br>
+            <label><strong>Direction:</strong> <span id="direction-die-result">-</span></label><br>
             <label><strong>Dungeon Map:</strong> <span id="map-die-result">-</span></label><br>
             <label><strong>Trap/Hazard:</strong> <span id="trap-die-result">-</span></label><br>
             <label><strong>Monster Encounter:</strong> <span id="monster-die-result">-</span></label><br>
             <label><strong>Treasure/Loot:</strong> <span id="treasure-die-result">-</span></label><br>
             <label><strong>Terrain:</strong> <span id="terrain-die-result">-</span></label><br>
             <label><strong>Weather:</strong> <span id="weather-die-result">-</span></label><br>
+          </div>
+        </div>
+        <h2>'Hit Dice'</h2>
+        <h3>aka 'Good Hits & Bad Misses'</h3>
+        <div class="dice-selector">
+          <div class="column">
+            <button type="button" class="all-monsters-btn" onclick="rollHitDice()">Roll All Hit Dice</button><br><br>
+            <label><strong>Body Part:</strong> <span id="bodypart-die-result">-</span></label><br>
+            <label><strong>Slashing Result:</strong> <span id="slashing-die-result">-</span></label><br>
+            <label><strong>Blunt Result:</strong> <span id="blunt-die-result">-</span></label><br>
+            <label><strong>Piercing Result:</strong> <span id="piercing-die-result">-</span></label><br>
+            <label><strong>Overall Effect:</strong> <span id="effect-die-result">-</span></label><br>
+            <label><strong>Fumble:</strong> <span id="fumble-die-result">-</span></label><br>
+            <label><strong>Armor Hit:</strong> <span id="armorhit-die-result">-</span></label><br>
+<!-- ABOVE -->
+            <label><strong>Psychological Impact:</strong> <span id="psych-die-result">-</span></label><br>
+          </div>
+        </div>
+        <h2>'NPC Dice'</h2>
+        <div class="dice-selector">
+          <div class="column">
+            <button type="button" class="all-monsters-btn" onclick="rollNPCDice()">Roll All NPC Dice</button><br><br>
+            <label><strong>Race:</strong> <span id="race-die-result">-</span></label><br>
+            <label><strong>Class:</strong> <span id="class-die-result">-</span></label><br>
+            <label><strong>Gender:</strong> <span id="gender-die-result">-</span></label><br>
+            <label><strong>Height:</strong> <span id="height-die-result">-</span></label><br>
+            <label><strong>Weight:</strong> <span id="weight-die-result">-</span></label><br>
+            <label><strong>Age:</strong> <span id="age-die-result">-</span></label><br>
+            <label><strong>Hair Color:</strong> <span id="hair-die-result">-</span></label><br>
+            <label><strong>Eye Color:</strong> <span id="eye-die-result">-</span></label><br>
+            <label><strong>Occupation:</strong> <span id="occupation-die-result">-</span></label><br>
+            <label><strong>Alignment:</strong> <span id="alignment-die-result">-</span></label><br>
+            <label><strong>Clothing:</strong> <span id="clothing-die-result">-</span></label><br>
+            <label><strong>Equipment:</strong> <span id="equipment-die-result">-</span></label><br>
+            <label><strong>Weapon:</strong> <span id="weapon-die-result">-</span></label><br>
           </div>
         </div>
       </main>
