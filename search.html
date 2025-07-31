@@ -6,7 +6,7 @@
     <link rel="icon" href="./images/dndfavicon.png" />
     <title>D&D 5E Toolkit</title>
     <link rel="stylesheet" href="/style.css" />
-    <script src="/script.js" defer></script>
+    <script src="/xscript.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -40,25 +40,14 @@
 
     <main id="main-content">
       <img src="./images/DND Logo.png" alt="D&D Logo" /><br />
-      <h1>Welcome to the D&D 5E Toolkit</h1>
-      <p>Select a tool from the '&' menu, top left.</p>
-      <p style="color: white">
-        July 30, 2025 - Expansion -<br />Added PDFs due to API lacking thorough material. Added Search. Added Dice styling and 'Dungeon Dice'.
-      </p>
-      <p style="color: white">
-        July 27, 2025 - Nearing Completion -<br />Added API Endpoints into the DMG and PHB sections.
-      </p>
-      <p style="color: white">
-        July 15, 2025 - Initial Post -<br />Beginning to approach the final
-        product, need to add DMG, and PHB, and stylistic changes.
-      </p>
-      <img
-        src="./images/ElmoreRedDragon.jpg"
-        style="width: 1200px; max-width: 100%"
-      />
-      <p style="color: white; font-size: small; margin: 0px">
-        Photo © <a href="https://larryelmore.com/store/">Larry Elmore</a>
-      </p>
+      <h1>Search</h1>
+      <div class="shell-wrapper">
+        <!-- SHELL -->
+         <h2>Global D&D API Search</h2>
+        <input type="text" id="searchInput" placeholder="Search term..." />
+        <button id="searchBtn">Search</button>
+        <div id="searchResults"></div>
+      </div>
     </main>
   </body>
 </html>

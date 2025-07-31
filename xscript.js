@@ -1206,3 +1206,55 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+document.getElementById('searchBtn').addEventListener('click', async () => {
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+  const resultsDiv = document.getElementById('searchResults');
+  resultsDiv.innerHTML = `<p>Searching all endpoints for "<strong>${query}</strong>"...</p>`;
+
+  if (!query) return;
+
+  try {
+    const baseUrl = 'https://www.dnd5eapi.co/api/2014';
+    const endpointsRes = await fetch(baseUrl);
+    const endpointsData = await endpointsRes.json();
+
+    const endpointKeys = Object.keys(endpointsData);
+    let matches = [];
+
+    for (const key of endpointKeys) {
+      const endpointUrl = `${baseUrl}/${key}`;
+      try {
+        const endpointRes = await fetch(endpointUrl);
+        const endpointData = await endpointRes.json();
+        const items = endpointData.results || [];
+
+        for (const item of items) {
+          const itemUrl = `https://www.dnd5eapi.co${item.url}`;
+          const itemRes = await fetch(itemUrl);
+          const itemData = await itemRes.json();
+          const itemText = JSON.stringify(itemData).toLowerCase();
+
+          if (itemText.includes(query)) {
+            matches.push({
+              name: item.name || item.index,
+              url: itemUrl,
+            });
+          }
+        }
+      } catch (innerErr) {
+        console.warn(`Skipping ${key}: ${innerErr.message}`);
+      }
+    }
+
+    if (matches.length === 0) {
+      resultsDiv.innerHTML = `<p>No results found for "<strong>${query}</strong>".</p>`;
+    } else {
+      resultsDiv.innerHTML = `<h3>Found ${matches.length} match(es):</h3><ul>` +
+        matches.map(m => `<li><a href="${m.url}" target="_blank">${m.name}</a></li>`).join('') +
+        `</ul>`;
+    }
+  } catch (err) {
+    resultsDiv.innerHTML = `<p style="color:red;">Error: ${err.message}</p>`;
+  }
+});

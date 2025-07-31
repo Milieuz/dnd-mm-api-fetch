@@ -323,7 +323,7 @@ button.collapsible::after {
 button[data-endpoint].closed::after,
 button.gear-toggle,
 button.collapsible.closed::after {
-  content: "";
+  content: " ▶";
 }
 
 @media screen and (max-width: 768px) {

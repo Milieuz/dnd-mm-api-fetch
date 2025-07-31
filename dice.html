@@ -26,9 +26,9 @@
       <a href="/char.html" class="menu-btn">Character Sheet(s)</a>
       <a href="/dice.html" class="menu-btn">Dice Roller</a>
       ---<br />
+      <a href="/search.html" class="menu-btn">API Search</a>
       <a href="/api.html" class="menu-btn">API Browser</a>
       <a href="/endpoints.html" class="menu-btn">API Endpoints</a>
-      ---<br />
       ---<br />
       <a href="https://www.dnd5eapi.co/">D&D 5E API</a>
       <a href="https://dndstore.wizards.com/us/en">D&D Official Store</a>
@@ -65,11 +65,23 @@
         <br>
         <button type="submit" class="all-monsters-btn">Roll Dice</button><br>
         <button id="save-results-btn" class="all-monsters-btn" style="display: none;">Save Dice Rolls to File</button>
-
-      </form>
+</form>
 
       <div id="dice-results" class="monsters-display"></div>
       <br>
+        <h2>Dungeon Dice</h2>
+        <div class="dice-selector">
+          <div class="column">
+            <button type="button" class="all-monsters-btn" onclick="rollDungeonDice()">Roll All Dungeon Dice</button><br><br>
+            <label><strong>Directions:</strong> <span id="direction-die-result">-</span></label><br>
+            <label><strong>Dungeon Map:</strong> <span id="map-die-result">-</span></label><br>
+            <label><strong>Trap/Hazard:</strong> <span id="trap-die-result">-</span></label><br>
+            <label><strong>Monster Encounter:</strong> <span id="monster-die-result">-</span></label><br>
+            <label><strong>Treasure/Loot:</strong> <span id="treasure-die-result">-</span></label><br>
+            <label><strong>Terrain:</strong> <span id="terrain-die-result">-</span></label><br>
+            <label><strong>Weather:</strong> <span id="weather-die-result">-</span></label><br>
+          </div>
+        </div>
       </main>
   </body>
 </html>
