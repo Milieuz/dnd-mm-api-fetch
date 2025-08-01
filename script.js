@@ -1573,14 +1573,11 @@ function rollNPCDice() {
     "Wizard - School of Transmutation"
   ];
 
-
-  const genderOptions = [
-    "Male",
-    "Female",
-    "Non-Binary",
-    "Uncertain"
-  ];
-
+const genderOptions = [
+  ...Array(47).fill("Male"),
+  ...Array(47).fill("Female"),
+  ...Array(6).fill("Uncertain / Nonbinary / Other")
+];
 
   const heightOptions = [
     "Very Short",
