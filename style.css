@@ -372,9 +372,9 @@ button.collapsible.closed::after {
   }
 
   .menu-btn {
-    font-size: 20px;
+    font-size: 16px;
     width: 85px;
-    height: 36px;
+    height: 40px;
     padding: 16px;
     margin: 4px;
     display: flex;

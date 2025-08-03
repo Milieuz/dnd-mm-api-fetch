@@ -218,6 +218,7 @@ button.onclick = function () {
 
         const img = document.createElement("img");
         img.src = `https://www.dnd5eapi.co/api/2014/images/monsters/${slug}.png`;
+        img.alt = `Image of ${monster.name}`;
         img.onerror = function () {
           this.style.display = "none";
 
