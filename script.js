@@ -429,6 +429,7 @@ form.addEventListener("submit", (event) => {
 
       mainDisplay.style.display = "none";
       secondaryDisplay.style.display = "block";
+      display.scrollIntoView({ behavior: "smooth" });
     })
     .catch((error) => {
       console.error("Error:", error);
