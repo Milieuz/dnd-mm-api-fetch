@@ -919,7 +919,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             await delay(50); // Ensure DOM is updated
 
-            // 🔁 Fetch level data to get subclass spells
+            // Fetch level data to get subclass spells
             const subclassSpells = [];
 
             try {
@@ -949,7 +949,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "<em>No subclass spells found in level data.</em>";
             }
 
-            // 🔁 Fetch and render each spell
+            // Fetch and render each spell
             for (let spell of subclassSpells) {
               try {
                 const res = await fetch(`https://www.dnd5eapi.co${spell.url}`);

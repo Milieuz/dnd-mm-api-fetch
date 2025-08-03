@@ -102,7 +102,7 @@ a.menu-btn {
   width: 250px;
   height: 100vh;
   overflow-y: auto;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
   background-color: #12181c;
   padding: 20px;
   font-size: 22px;
@@ -160,7 +160,7 @@ body.menu-open #main-content {
   margin: 40px auto;
   flex-wrap: wrap;
   max-width: 800px;
-  padding: 0 10px; /* prevent touching screen edges */
+  padding: 0 10px;
   transform: scale(1.1);
 }
 
@@ -440,8 +440,7 @@ button.collapsible.closed::after {
   }
 
   .dice-selector label {
-    padding: 6px 8px; /* reduce padding inside each label */
+    padding: 6px 8px; 
     font-size: 18px;
-    optional: make text smaller;
   }
 }

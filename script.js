@@ -178,7 +178,6 @@ button.onclick = function () {
         data.count +
         " total monsters. <br> Disclaimer: Many API images are not present, resulting in broken .png links.";
 
-      // *** Trying to have this line produce the link to the subsection of the API for each entry, but cannot concatenate the variable into the passed HTML
       let i = 0;
       function displayNextMonster() {
         if (i >= data.count) return;
@@ -239,16 +238,12 @@ button.onclick = function () {
       }
       displayNextMonster();
 
-      // for (let i=0; i<data.count; i++){
-      //   mainDisplay.innerHTML += '<br>' + 'Monster #'+ (i+1) + ' is: '+ data.results[i].name + ',' + ' <a href="https://www.dnd5eapi.co'+ `${data.results[i].url}` + '">Here</a>' + '<br>' + '<img src="https://www.dnd5eapi.co/api/2014/images/monsters/' + `${data.results[i].name.replace(/\s+/g, '-').toLowerCase()}` + '.png">' + '<br>';
-      // }
-
       mainDisplay.style.display = "block";
       secondaryDisplay.style.display = "none";
     });
 };
 
-// Search and Display singular monster, needs development
+// Search and Display singular monster
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
