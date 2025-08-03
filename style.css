@@ -84,14 +84,14 @@ a.menu-btn {
 .hamburger {
   position: fixed;
   top: 15px;
-  left: 15px;
+  left: 10px;
   font-size: 28px;
   z-index: 1001;
   cursor: pointer;
 }
 
 .menu-spacer {
-  height: 60px;
+  height: 68px;
 }
 
 .side-menu {
@@ -333,6 +333,24 @@ button.collapsible.closed::after {
   content: " ▶";
 }
 
+.hamburger-container {
+  position: fixed;
+  top: 15px;
+  left: 10px;
+  background-color: #12181C;
+  border: 1px solid red;
+  border-radius: 12px;
+  padding: 14px;
+  z-index: 1002;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
 @media screen and (max-width: 768px) {
   .side-menu {
     width: 125px;
@@ -356,7 +374,7 @@ button.collapsible.closed::after {
   .menu-btn {
     font-size: 20px;
     width: 85px;
-    height: 40px;
+    height: 36px;
     padding: 16px;
     margin: 4px;
     display: flex;
