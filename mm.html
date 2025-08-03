@@ -10,7 +10,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="hamburger-container">
@@ -33,7 +36,9 @@
       <a href="/endpoints.html" class="menu-btn">🔍API Endpoints</a>
       ---<br />
       <a href="https://www.dnd5eapi.co/" class="menu-btn">🔮D&D 5E API</a>
-      <a href="https://dndstore.wizards.com/us/en" class="menu-btn">🔮D&D Official Store</a>
+      <a href="https://dndstore.wizards.com/us/en" class="menu-btn"
+        >🔮D&D Official Store</a
+      >
       <a href="https://www.dndbeyond.com/" class="menu-btn">🔮D&D Beyond</a>
       <a href="https://company.wizards.com/en" class="menu-btn">🔮WotC</a>
       ---<br />
@@ -49,25 +54,31 @@
         <h1>D&D 5E Monster Manual</h1>
 
         <!-- PDF BUTTON -->
-         <button id="togglePdfBtn" style="align-self: left;">▶ View PDF</button>
-            <p>
-            <strong>⚠️ iOS Safari Notice:</strong> Embedded PDFs may not display correctly.<br>
-              <a href="./pdfs/5EMM.pdf" target="_blank" rel="noopener noreferrer">
-                Tap here to open the PDF in a new tab.
-              </a>
-            </p>
-          <div id="pdfContainer" style="display: none; margin-top: 1em;">
-            <embed src="./pdfs/5EMM.pdf" type="application/pdf" width="100%" style="height: 80vh;" />
-          </div>
-          <script>
-            const toggleBtn = document.getElementById("togglePdfBtn");
-            const pdfContainer = document.getElementById("pdfContainer");
-            toggleBtn.addEventListener("click", () => {
-              const isVisible = pdfContainer.style.display === "block";
-              pdfContainer.style.display = isVisible ? "none" : "block";
-              toggleBtn.textContent = isVisible ? "▶ View PDF" : "▼ Hide PDF";
-            });
-          </script>
+        <button id="togglePdfBtn" style="align-self: left">▶ View PDF</button>
+        <p>
+          <strong>⚠️ iOS Safari Notice:</strong> Embedded PDFs may not display
+          correctly.<br />
+          <a href="./pdfs/5EMM.pdf" target="_blank" rel="noopener noreferrer">
+            Tap here to open the PDF in a new tab.
+          </a>
+        </p>
+        <div id="pdfContainer" style="display: none; margin-top: 1em">
+          <embed
+            src="./pdfs/5EMM.pdf"
+            type="application/pdf"
+            width="100%"
+            style="height: 80vh"
+          />
+        </div>
+        <script>
+          const toggleBtn = document.getElementById("togglePdfBtn");
+          const pdfContainer = document.getElementById("pdfContainer");
+          toggleBtn.addEventListener("click", () => {
+            const isVisible = pdfContainer.style.display === "block";
+            pdfContainer.style.display = isVisible ? "none" : "block";
+            toggleBtn.textContent = isVisible ? "▶ View PDF" : "▼ Hide PDF";
+          });
+        </script>
 
         <p>Monster Search</p>
 

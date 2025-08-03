@@ -1207,15 +1207,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-document.getElementById('searchBtn').addEventListener('click', async () => {
-  const query = document.getElementById('searchInput').value.toLowerCase().trim();
-  const resultsDiv = document.getElementById('searchResults');
+document.getElementById("searchBtn").addEventListener("click", async () => {
+  const query = document
+    .getElementById("searchInput")
+    .value.toLowerCase()
+    .trim();
+  const resultsDiv = document.getElementById("searchResults");
   resultsDiv.innerHTML = `<p>Searching all endpoints for "<strong>${query}</strong>"...</p>`;
 
   if (!query) return;
 
   try {
-    const baseUrl = 'https://www.dnd5eapi.co/api/2014';
+    const baseUrl = "https://www.dnd5eapi.co/api/2014";
     const endpointsRes = await fetch(baseUrl);
     const endpointsData = await endpointsRes.json();
 
@@ -1250,8 +1253,13 @@ document.getElementById('searchBtn').addEventListener('click', async () => {
     if (matches.length === 0) {
       resultsDiv.innerHTML = `<p>No results found for "<strong>${query}</strong>".</p>`;
     } else {
-      resultsDiv.innerHTML = `<h3>Found ${matches.length} match(es):</h3><ul>` +
-        matches.map(m => `<li><a href="${m.url}" target="_blank">${m.name}</a></li>`).join('') +
+      resultsDiv.innerHTML =
+        `<h3>Found ${matches.length} match(es):</h3><ul>` +
+        matches
+          .map(
+            (m) => `<li><a href="${m.url}" target="_blank">${m.name}</a></li>`
+          )
+          .join("") +
         `</ul>`;
     }
   } catch (err) {

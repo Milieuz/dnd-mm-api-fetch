@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   display: flex;
@@ -36,7 +37,7 @@ a:active {
 }
 
 .navbar {
-  background-color: #12181C;
+  background-color: #12181c;
   position: fixed;
   top: 0;
   width: 100%;
@@ -102,7 +103,7 @@ a.menu-btn {
   height: 100vh;
   overflow-y: auto;
   scrollbar-width: none; /* Firefox */
-  background-color: #12181C;
+  background-color: #12181c;
   padding: 20px;
   font-size: 22px;
   border-right: 1px solid red;
@@ -115,8 +116,6 @@ a.menu-btn {
 .side-menu::-webkit-scrollbar {
   display: none;
 }
-
-
 
 .side-menu.open {
   left: 0;
@@ -166,7 +165,7 @@ body.menu-open #main-content {
 }
 
 .dice-selector label {
-  background-color: #12181C;
+  background-color: #12181c;
   padding: 10px 12px;
   border: 1px solid red;
   border-radius: 8px;
@@ -187,7 +186,6 @@ body.menu-open #main-content {
   text-align: right;
 }
 
-
 #dice-results {
   background-color: #121212;
   border: 1px solid red;
@@ -199,7 +197,6 @@ body.menu-open #main-content {
   border-radius: 6px;
   white-space: pre-wrap;
 }
-
 
 .grid-container {
   display: grid;
@@ -228,26 +225,74 @@ body.menu-open #main-content {
   font-size: 1.2rem;
 }
 
-.grid-item:nth-child(1) { grid-area: nameplate; }
-.grid-item:nth-child(2) { grid-area: info-char; display: flex; gap: 1em; flex-wrap: wrap; }
-.grid-item:nth-child(3) { grid-area: info-stats; display: flex; gap: 1rem; justify-content: space-between; }
-.grid-item:nth-child(3) .stat-column { display: flex; flex-direction: column; flex: 1; }
-.grid-item:nth-child(4) { grid-area: info-combat; }
-.grid-item:nth-child(5) { grid-area: info-personality; }
-.grid-item:nth-child(6) { grid-area: info-attacks; }
-.grid-item:nth-child(7) { grid-area: info-featandtrait; }
-.grid-item:nth-child(8) { grid-area: info-profandlang; }
-.grid-item:nth-child(9) { grid-area: info-equipment; }
-.grid-item:nth-child(10) { grid-area: nameplate2; }
-.grid-item:nth-child(11) { grid-area: info-char-physical; }
-.grid-item:nth-child(12) { grid-area: info-appearance; }
-.grid-item:nth-child(13) { grid-area: info-allyandorg; }
-.grid-item:nth-child(14) { grid-area: info-backstory; }
-.grid-item:nth-child(15) { grid-area: info-featuresandtraits; }
-.grid-item:nth-child(16) { grid-area: info-treasure; }
-.grid-item:nth-child(17) { grid-area: spell-class; }
-.grid-item:nth-child(18) { grid-area: spell-stats; }
-.grid-item:nth-child(19) { grid-area: spell-levels; }
+.grid-item:nth-child(1) {
+  grid-area: nameplate;
+}
+.grid-item:nth-child(2) {
+  grid-area: info-char;
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+.grid-item:nth-child(3) {
+  grid-area: info-stats;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+.grid-item:nth-child(3) .stat-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.grid-item:nth-child(4) {
+  grid-area: info-combat;
+}
+.grid-item:nth-child(5) {
+  grid-area: info-personality;
+}
+.grid-item:nth-child(6) {
+  grid-area: info-attacks;
+}
+.grid-item:nth-child(7) {
+  grid-area: info-featandtrait;
+}
+.grid-item:nth-child(8) {
+  grid-area: info-profandlang;
+}
+.grid-item:nth-child(9) {
+  grid-area: info-equipment;
+}
+.grid-item:nth-child(10) {
+  grid-area: nameplate2;
+}
+.grid-item:nth-child(11) {
+  grid-area: info-char-physical;
+}
+.grid-item:nth-child(12) {
+  grid-area: info-appearance;
+}
+.grid-item:nth-child(13) {
+  grid-area: info-allyandorg;
+}
+.grid-item:nth-child(14) {
+  grid-area: info-backstory;
+}
+.grid-item:nth-child(15) {
+  grid-area: info-featuresandtraits;
+}
+.grid-item:nth-child(16) {
+  grid-area: info-treasure;
+}
+.grid-item:nth-child(17) {
+  grid-area: spell-class;
+}
+.grid-item:nth-child(18) {
+  grid-area: spell-stats;
+}
+.grid-item:nth-child(19) {
+  grid-area: spell-levels;
+}
 
 input {
   color: black;
@@ -337,7 +382,7 @@ button.collapsible.closed::after {
   position: fixed;
   top: 15px;
   left: 10px;
-  background-color: #12181C;
+  background-color: #12181c;
   border: 1px solid red;
   border-radius: 12px;
   padding: 14px;
@@ -348,8 +393,6 @@ button.collapsible.closed::after {
   align-items: center;
   justify-content: center;
 }
-
-
 
 @media screen and (max-width: 768px) {
   .side-menu {
@@ -392,13 +435,13 @@ button.collapsible.closed::after {
   }
 
   .dice-selector {
-  gap: 4px;
-  margin: 40px 2px 2px 2px;
+    gap: 4px;
+    margin: 40px 2px 2px 2px;
   }
 
   .dice-selector label {
-    padding: 6px 8px;          /* reduce padding inside each label */
-    font-size: 18px;           optional: make text smaller
+    padding: 6px 8px; /* reduce padding inside each label */
+    font-size: 18px;
+    optional: make text smaller;
   }
-
 }

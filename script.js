@@ -1364,10 +1364,10 @@ function rollHitDice() {
   ];
 
   const psychOptions = [
-    "Shaken", 
-    "Bloodthirsty", 
-    "Panicked", 
-    "Confident Surge", 
+    "Shaken",
+    "Bloodthirsty",
+    "Panicked",
+    "Confident Surge",
     "Distracted",
 
     // Fear / Panic / Trauma
@@ -1445,9 +1445,8 @@ function rollHitDice() {
     "Emotional Numbness",
     "Impulse Control Loss",
     "Fear of Magic",
-    "Mistrust of Allies"
+    "Mistrust of Allies",
   ];
-
 
   document.getElementById("bodypart-die-result").textContent =
     bodypartOptions[Math.floor(Math.random() * bodypartOptions.length)];
@@ -1471,30 +1470,27 @@ function rollHitDice() {
 
 // ======================================= BEGIN NPC DICE =======================================
 
-
-
 function rollNPCDice() {
-
   const raceOptions = [
-  "Human",
-  "Variant Human",
-  "Dwarf",
-  "Hill Dwarf",
-  "Mountain Dwarf",
-  "Elf",
-  "High Elf",
-  "Wood Elf",
-  "Drow",
-  "Halfling",
-  "Lightfoot Halfling",
-  "Stout Halfling",
-  "Dragonborn",
-  "Gnome",
-  "Forest Gnome",
-  "Rock Gnome",
-  "Half-Elf",
-  "Half-Orc",
-  "Tiefling",
+    "Human",
+    "Variant Human",
+    "Dwarf",
+    "Hill Dwarf",
+    "Mountain Dwarf",
+    "Elf",
+    "High Elf",
+    "Wood Elf",
+    "Drow",
+    "Halfling",
+    "Lightfoot Halfling",
+    "Stout Halfling",
+    "Dragonborn",
+    "Gnome",
+    "Forest Gnome",
+    "Rock Gnome",
+    "Half-Elf",
+    "Half-Orc",
+    "Tiefling",
   ];
 
   const classOptions = [
@@ -1572,14 +1568,14 @@ function rollNPCDice() {
     "Wizard - School of Evocation",
     "Wizard - School of Illusion",
     "Wizard - School of Necromancy",
-    "Wizard - School of Transmutation"
+    "Wizard - School of Transmutation",
   ];
 
-const genderOptions = [
-  ...Array(47).fill("Male"),
-  ...Array(47).fill("Female"),
-  ...Array(6).fill("Uncertain / Nonbinary / Other")
-];
+  const genderOptions = [
+    ...Array(47).fill("Male"),
+    ...Array(47).fill("Female"),
+    ...Array(6).fill("Uncertain / Nonbinary / Other"),
+  ];
 
   const heightOptions = [
     "Very Short",
@@ -1602,7 +1598,7 @@ const genderOptions = [
     "Petite",
     "Stout",
     "Gigantic",
-    "Colossal"
+    "Colossal",
   ];
 
   const weightOptions = [
@@ -1626,7 +1622,7 @@ const genderOptions = [
     "Rotund",
     "Obese",
     "Massive",
-    "Hulking"
+    "Hulking",
   ];
 
   const ageOptions = [
@@ -1647,7 +1643,7 @@ const genderOptions = [
     "Seasoned",
     "Prime of Life",
     "Over the Hill",
-    "Crone / Sage-Like"
+    "Crone / Sage-Like",
   ];
 
   const hairOptions = [
@@ -1701,7 +1697,7 @@ const genderOptions = [
     "Bronze",
     "Steel",
     "Obsidian",
-    "Translucent"
+    "Translucent",
   ];
 
   const eyeOptions = [
@@ -1754,9 +1750,8 @@ const genderOptions = [
     "Mirror-like",
     "Completely White",
     "Nebula Patterned",
-    "Clockwork Gear Pattern"
+    "Clockwork Gear Pattern",
   ];
-
 
   const occupationOptions = [
     // Crafting & Trades
@@ -1897,7 +1892,7 @@ const genderOptions = [
     "Caravan Guard",
     "Guide",
     "Beast Tamer",
-    "Monster Hunter"
+    "Monster Hunter",
   ];
 
   const alignmentOptions = [
@@ -1909,7 +1904,7 @@ const genderOptions = [
     "Chaotic Neutral",
     "Lawful Evil",
     "Neutral Evil",
-    "Chaotic Evil"
+    "Chaotic Evil",
   ];
 
   const clothingOptions = [
@@ -1968,78 +1963,76 @@ const genderOptions = [
     "Minstrel’s Colorful Performance Attire",
     "Masked Carnival Costume",
     "Fire Dancer’s Sashes and Bells",
-    "Mystic Fortune Teller’s Flowing Skirts and Shawls"
+    "Mystic Fortune Teller’s Flowing Skirts and Shawls",
   ];
 
-const equipmentOptions = [
-  // Survival & Exploration
-  "Bedroll, Flint-and-Steel, Waterskin",
-  "Hiking Boots, Trail Rations, Travel Cloak",
-  "Tent, Rope, Hammer",
-  "Compass, Travel Journal, Quill",
-  "Lantern, Oil Flask, Tinderbox",
+  const equipmentOptions = [
+    // Survival & Exploration
+    "Bedroll, Flint-and-Steel, Waterskin",
+    "Hiking Boots, Trail Rations, Travel Cloak",
+    "Tent, Rope, Hammer",
+    "Compass, Travel Journal, Quill",
+    "Lantern, Oil Flask, Tinderbox",
 
-  // Tools & Crafting
-  "Smithing Hammer, Tongs, Whetstone",
-  "Carpenter’s Saw, Nails, Measuring String",
-  "Tinker’s Tools, Gears, Magnifying Glass",
-  "Herbal Pouch, Mortar-and-Pestle, Vials",
-  "Chisel, Mallet, Chalk",
+    // Tools & Crafting
+    "Smithing Hammer, Tongs, Whetstone",
+    "Carpenter’s Saw, Nails, Measuring String",
+    "Tinker’s Tools, Gears, Magnifying Glass",
+    "Herbal Pouch, Mortar-and-Pestle, Vials",
+    "Chisel, Mallet, Chalk",
 
-  // Wilderness & Hunting
-  "Hunting Bow, Quiver of Arrows, Skinning Knife",
-  "Bear Trap, Rope, Camouflage Net",
-  "Fishing Pole, Tackle Box, Hooks",
-  "Snares, Trail Markers, Jerky Pack",
-  "Survival Manual, Hatchet, Firestarter Kit",
+    // Wilderness & Hunting
+    "Hunting Bow, Quiver of Arrows, Skinning Knife",
+    "Bear Trap, Rope, Camouflage Net",
+    "Fishing Pole, Tackle Box, Hooks",
+    "Snares, Trail Markers, Jerky Pack",
+    "Survival Manual, Hatchet, Firestarter Kit",
 
-  // Arcane & Religious
-  "Spellbook, Ink Feather, Quill",
-  "Scroll Case, Arcane Focus, Chalk Circle",
-  "Holy Symbol, Prayer Beads, Censer",
-  "Vial of Sacred Water, Ritual Dagger, Tapestry Cloth",
-  "Crystal Orb, Incense Bundle, Star Chart",
+    // Arcane & Religious
+    "Spellbook, Ink Feather, Quill",
+    "Scroll Case, Arcane Focus, Chalk Circle",
+    "Holy Symbol, Prayer Beads, Censer",
+    "Vial of Sacred Water, Ritual Dagger, Tapestry Cloth",
+    "Crystal Orb, Incense Bundle, Star Chart",
 
-  // Stealth & Subterfuge
-  "Lockpicks, Dark Cloak, Quiet Boots",
-  "Spyglass, Map, Compass",
-  "Thieves' Tools, Grappling Hook, Hooded Lantern",
-  "Poison Vial, Hollow Ring, Disguise Kit",
-  "Smoke Bomb, Blindfold, Whisper Mask",
+    // Stealth & Subterfuge
+    "Lockpicks, Dark Cloak, Quiet Boots",
+    "Spyglass, Map, Compass",
+    "Thieves' Tools, Grappling Hook, Hooded Lantern",
+    "Poison Vial, Hollow Ring, Disguise Kit",
+    "Smoke Bomb, Blindfold, Whisper Mask",
 
-  // Nautical
-  "Rope, Hook, Driftwood Plank",
-  "Sextant, Navigational Charts, Signal Flags",
-  "Tar Bucket, Patch Kit, Spare Oar",
-  "Fishing Net, Iron Rations, Seaglass Pendant",
+    // Nautical
+    "Rope, Hook, Driftwood Plank",
+    "Sextant, Navigational Charts, Signal Flags",
+    "Tar Bucket, Patch Kit, Spare Oar",
+    "Fishing Net, Iron Rations, Seaglass Pendant",
 
-  // Scholar & Merchant
-  "Ledger, Inkpot, Abacus",
-  "Scroll Case, Translation Tome, Inkstick",
-  "Merchant’s Scales, Sample Goods, Ledger",
-  "Sealing Wax, Signet Ring, Parchment",
+    // Scholar & Merchant
+    "Ledger, Inkpot, Abacus",
+    "Scroll Case, Translation Tome, Inkstick",
+    "Merchant’s Scales, Sample Goods, Ledger",
+    "Sealing Wax, Signet Ring, Parchment",
 
-  // Performer & Artisan
-  "Lute, Spare Strings, Rosin Cloth",
-  "Juggling Balls, Mask, Face Paint",
-  "Paintbrush, Canvas, Pigments",
-  "Dancer’s Veils, Finger Cymbals, Anklet Bells",
-  "Poetry Book, Feather Pen, Rose Petals",
+    // Performer & Artisan
+    "Lute, Spare Strings, Rosin Cloth",
+    "Juggling Balls, Mask, Face Paint",
+    "Paintbrush, Canvas, Pigments",
+    "Dancer’s Veils, Finger Cymbals, Anklet Bells",
+    "Poetry Book, Feather Pen, Rose Petals",
 
-  // Military & Guard
-  "Shortsword, Shield, Gambeson",
-  "Helmet, Greaves, Sword Oil",
-  "Torch, Whistle, Patrol Badge",
-  "Manacles, Baton, Hood",
+    // Military & Guard
+    "Shortsword, Shield, Gambeson",
+    "Helmet, Greaves, Sword Oil",
+    "Torch, Whistle, Patrol Badge",
+    "Manacles, Baton, Hood",
 
-  // Misc / Personal
-  "Coin Pouch, Lucky Charm, Lock of Hair",
-  "Mirror, Comb, Perfume Vial",
-  "Dice Set, Playing Cards, Drinking Flask",
-  "Keepsake Locket, Diary, Small Key"
-];
-
-
+    // Misc / Personal
+    "Coin Pouch, Lucky Charm, Lock of Hair",
+    "Mirror, Comb, Perfume Vial",
+    "Dice Set, Playing Cards, Drinking Flask",
+    "Keepsake Locket, Diary, Small Key",
+  ];
 
   const weaponOptions = [
     // Simple Melee Weapons
@@ -2105,9 +2098,8 @@ const equipmentOptions = [
     "Sun Blade",
     "Hexblade Weapon",
     "Pact Weapon",
-    "Soulbound Spear"
+    "Soulbound Spear",
   ];
-
 
   document.getElementById("race-die-result").textContent =
     raceOptions[Math.floor(Math.random() * raceOptions.length)];
@@ -2136,6 +2128,5 @@ const equipmentOptions = [
   document.getElementById("weapon-die-result").textContent =
     weaponOptions[Math.floor(Math.random() * weaponOptions.length)];
 }
-
 
 // END NPC DICE

@@ -14,11 +14,26 @@
       href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap"
       rel="stylesheet"
     />
-      <style>
-        body { padding: 20px; background: black;}
-        pre { background: black; color: red; padding: 10px; overflow: auto; white-space: pre-wrap; text-align: left;}
-        .link { color: white; cursor: pointer; text-decoration: underline; margin: 3px 0; }
-      </style>
+    <style>
+      body {
+        padding: 20px;
+        background: black;
+      }
+      pre {
+        background: black;
+        color: red;
+        padding: 10px;
+        overflow: auto;
+        white-space: pre-wrap;
+        text-align: left;
+      }
+      .link {
+        color: white;
+        cursor: pointer;
+        text-decoration: underline;
+        margin: 3px 0;
+      }
+    </style>
   </head>
   <body>
     <div class="hamburger-container">
@@ -41,7 +56,9 @@
       <a href="/endpoints.html" class="menu-btn">🔍API Endpoints</a>
       ---<br />
       <a href="https://www.dnd5eapi.co/" class="menu-btn">🔮D&D 5E API</a>
-      <a href="https://dndstore.wizards.com/us/en" class="menu-btn">🔮D&D Official Store</a>
+      <a href="https://dndstore.wizards.com/us/en" class="menu-btn"
+        >🔮D&D Official Store</a
+      >
       <a href="https://www.dndbeyond.com/" class="menu-btn">🔮D&D Beyond</a>
       <a href="https://company.wizards.com/en" class="menu-btn">🔮WotC</a>
       ---<br />
@@ -56,19 +73,24 @@
       <div class="shell-wrapper">
         <h1>D&D 5E API Browser</h1>
         <h2>https://www.dnd5eapi.co/</h2>
-        <button onclick="makeRequest()" style="
-        padding: 10px 32px; 
-        font-size: 16px; 
-        margin: 10px; 
-        background-color: red; 
-        color: white;
-        border: none;
-        text-align: center;
-        text-decoration: none;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-        ">Reload API Root</button>
+        <button
+          onclick="makeRequest()"
+          style="
+            padding: 10px 32px;
+            font-size: 16px;
+            margin: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+          "
+        >
+          Reload API Root
+        </button>
 
         <h2>Response:</h2>
         <pre id="response"></pre>
