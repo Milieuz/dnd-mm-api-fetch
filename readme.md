@@ -103,6 +103,7 @@ Provides comprehensive details about a selected monster:
 
 - Allows the user to roll large quantities of varied dice from the D&D 5E repertoire (d2, d3, d4, d6, d8, d10, d12, d20, d100).
 - Showcases the roll results, including an array of each roll, followed by a sum, and total sum(s).
+- Provides functionality for users to export and save roll results, useful for character creation, verification, or record-keeping.
 - Includes numerous randomization dice for on-the-fly creativity, ranging from conditions, to hit effects, and character generation.
   - **Dungeon Dice**: direction, hazards, traps, monsters, treasure, terrain, weather
   - **Hit Dice**: body parts, damage types, critical effects, armor, fumbles, psychology
