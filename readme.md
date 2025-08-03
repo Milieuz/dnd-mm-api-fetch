@@ -1,6 +1,6 @@
 # 🐉 Dungeons & Dragons 5E API Toolkit ⚔️
 
-### Available Live, here: [dnd5eapi.netlify.app](dnd5eapi.netlify.app)
+### Available Live, here: [https://dnd5eapi.netlify.app/](https://dnd5eapi.netlify.app/)
 
 **August 3, 2025 — Evan Wheeler**
 
@@ -128,9 +128,10 @@ Provides comprehensive details about a selected monster:
 
 - Links to external resources: D&D 5E API, D&D Official Store, Official D&D Beyond, Official WotC.
   - [D&D 5E API](https://www.dnd5eapi.co/)
+  - [Official D&D Store](https://dndstore.wizards.com/us/en)
   - [D&D Beyond](https://www.dndbeyond.com/)
-  - [Wizards of the Coast](https://dnd.wizards.com/)
-  - [Official D&D Store](https://shop.dnd.wizards.com/)
+  - [Wizards of the Coast](https://company.wizards.com/en)
+
 
 ✅ **Status:** Fully Functional.
 
@@ -140,7 +141,7 @@ Provides comprehensive details about a selected monster:
 
 - Includes link to official OGL Licensing data, materials from the Internet Archive, Copyright Information, and About sections.
 - Includes:
-  - [OGL v1.0a License](https://media.wizards.com/2020/dnd/downloads/OGLv1.0a.rtf)
+  - [OGL v1.0a License](https://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf)
   - Archive.org reference materials
   - Copyright acknowledgments
   - Site disclaimers and about section
